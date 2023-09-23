@@ -28,20 +28,17 @@ class MultiHeadAttentionBlock(nn.Module):
   def __init__(
     self,
     num_heads = 4,
-    d_in_per_head = 16,
-    # d_k_per_head = None,
-    # d_v_per_head = None,
+    d_per_head = 16,
   ):
     super().__init__()
-    self.d_in_per_head = d_in_per_head
+    self.d_per_head = d_per_head
     self.num_heads = num_heads
-    self.heads = [AttentionBlock(d_in_per_head, d_in_per_head, d_in_per_head) for _ in range(num_heads)]
-    # self.heads = [AttentionBlock(d_in_per_head, d_k_per_head, d_v_per_head) for _ in range(num_heads)]
+    self.heads = [AttentionBlock(d_per_head, d_per_head, d_per_head) for _ in range(num_heads)]
 
   def forward(self, x: Tensor):
     d_in = x.shape[2]
     assert d_in % self.num_heads == 0
-    assert d_in // self.num_heads == self.d_in_per_head
+    assert d_in // self.num_heads == self.d_per_head
     d_per_head = d_in // self.num_heads
 
     xs = [
@@ -49,7 +46,7 @@ class MultiHeadAttentionBlock(nn.Module):
       for i, head in enumerate(self.heads)
     ]
 
-    return torch.cat(xs, dim=2) # shape: (batch_size, seq_length, num_features)
+    return torch.cat(xs, dim=2)
 
 
 class TransformerBlock(nn.Module):
@@ -68,7 +65,6 @@ class TransformerBlock(nn.Module):
     self.layer_norm2 = nn.LayerNorm(d) # TODO check
     self.mlp = nn.Linear(in_features=d, out_features=d)
 
-
   def forward(self, x: Tensor):
     x_skip_1 = x
     x = self.layer_norm1(x)
@@ -81,6 +77,25 @@ class TransformerBlock(nn.Module):
     x += x_skip_2
 
     return x
+
+
+class Sentimentalist(nn.Module):
+  def __init__(self, d_in: int, d_pos_enc: int, num_classes: int):
+    super().__init__()
+    d = d_in + d_pos_enc
+    self.d_pos_enc = d_pos_enc
+    self.transformer_blocks = [TransformerBlock(d) for _ in range(4)]
+    self.mlp = nn.Linear(in_features=d, out_features=num_classes)
+  
+  def forward(self, x: Tensor):
+    x = add_positional_encoding(x, self.d_pos_enc)
+
+    for block in self.transformer_blocks:
+      x = block(x)
+
+    x = self.mlp(x[:,-1,:])
+
+    return nn.functional.softmax(x, dim=1)
 
 
 def scaled_dot_product_self_attention(q: Tensor, k: Tensor, v: Tensor) -> Tensor: # shape (batch_size, seq_length, dim_v)
@@ -170,29 +185,16 @@ def test_self_attention():
   print(green('passed'))
 
 
-# def test_multi_head_attention():
-#   batch_size = 20
-#   seq_lenth = 100
-#   num_heads = 6
-#   dim_qk = 60 # divisible by num_heads
-#   dim_v = 54
-#   q = torch.rand((batch_size, seq_lenth, dim_qk))
-#   k = torch.rand((batch_size, seq_lenth, dim_qk))
-#   v = torch.rand((batch_size, seq_lenth, dim_v))
-#   x = multi_head_attention(q, k, v, num_heads)
-#   assert x.shape == (batch_size, seq_lenth, dim_v)
-#   print(green('passed'))
-
-
 def green(s):
   return F"\033[92m{s}\033[0m"
 
 
 if __name__ == "__main__":
-  pass
   batch_size = 20
+  d_in = 16
+  d_enc = 16
+  d = d_in + d_enc
   seq_length = 100
-  d = 8
-  input = Tensor(np.random.randn(batch_size, seq_length, d))
-  tb = TransformerBlock(128, num_heads=8)
-  tb.forward(input)
+  input = Tensor(np.random.randn(batch_size, seq_length, d_in))
+  s = Sentimentalist(16, 16, 3)
+  x = s.forward(input)
