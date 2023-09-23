@@ -16,11 +16,11 @@ class AttentionBlock(nn.Module):
     self.k = nn.Linear(in_features=d_in, out_features=d_k)
     self.v = nn.Linear(in_features=d_in, out_features=d_v)
 
-  def forward(self, x: Tensor):
+  def forward(self, x: Tensor, masked = False):
     Q = self.q(x)
     K = self.k(x)
     V = self.v(x)
-    x = scaled_dot_product_self_attention(Q, K, V)
+    x = scaled_dot_product_self_attention(Q, K, V, masked)
     return x
 
 
@@ -98,15 +98,16 @@ class Sentimentalist(nn.Module):
     return nn.functional.softmax(x, dim=1)
 
 
-def scaled_dot_product_self_attention(q: Tensor, k: Tensor, v: Tensor) -> Tensor: # shape (batch_size, seq_length, dim_v)
+def scaled_dot_product_self_attention(q: Tensor, k: Tensor, v: Tensor, masked = False) -> Tensor: # shape (batch_size, seq_length, dim_v)
   assert len(q.shape) == 3 and len(k.shape) == 3, 'expected both q and k to be 3d'
-  attn_matrix = attention_matrix(q, k)
+  attn_matrix = attention_matrix(q, k, masked)
   d_k = torch.Tensor([k.shape[2]])
   return (attn_matrix @ v) / torch.sqrt(d_k)
 
 
-def attention_matrix(q: Tensor, k: Tensor):
-    return torch.matmul(q, k.transpose(dim0=1, dim1=2)).softmax(dim=2)
+def attention_matrix(q: Tensor, k: Tensor, masked = False):
+    attn_matrix = torch.matmul(q, k.transpose(dim0=1, dim1=2)).softmax(dim=2)
+    return torch.tril(attn_matrix) if masked else attn_matrix
 
 
 def positional_encoding(l: int, dim: int) -> np.ndarray:
@@ -154,6 +155,20 @@ def test_attention_matrix():
   summed = attn_matrix.sum(dim=2)
   assert summed.shape == (batch_size, seq_lenth)
   assert torch.allclose(summed, torch.ones((batch_size, seq_lenth)))
+  print(green('passed'))
+
+
+def test_attention_matrix_mask():
+  batch_size = 20
+  seq_lenth = 100
+  features = 3
+  q = torch.rand((batch_size, seq_lenth, features))
+  k = torch.rand((batch_size, seq_lenth, features))
+  attn_matrix = attention_matrix(q, k, masked=True)
+  batch1 = attn_matrix[0]
+  assert batch1[0][0] != 0 and batch1[0][1] == 0 and batch1[0][2] == 0
+  assert batch1[1][0] != 0 and batch1[1][1] != 0 and batch1[1][2] == 0
+  assert batch1[2][0] != 0 and batch1[2][1] != 0 and batch1[2][2] != 0
   print(green('passed'))
 
 
