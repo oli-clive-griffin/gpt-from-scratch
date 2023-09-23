@@ -84,7 +84,7 @@ class Sentimentalist(nn.Module):
     super().__init__()
     d = d_in + d_pos_enc
     self.d_pos_enc = d_pos_enc
-    self.transformer_blocks = [TransformerBlock(d) for _ in range(4)]
+    self.transformer_blocks = [TransformerBlock(d) for _ in range(10)]
     self.mlp = nn.Linear(in_features=d, out_features=num_classes)
   
   def forward(self, x: Tensor):
@@ -191,10 +191,10 @@ def green(s):
 
 if __name__ == "__main__":
   batch_size = 20
-  d_in = 16
-  d_enc = 16
+  d_in = 64
+  d_enc = 64
   d = d_in + d_enc
   seq_length = 100
   input = Tensor(np.random.randn(batch_size, seq_length, d_in))
-  s = Sentimentalist(16, 16, 3)
+  s = Sentimentalist(d_in, d_enc, 3)
   x = s.forward(input)
