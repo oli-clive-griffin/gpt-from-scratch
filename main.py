@@ -58,23 +58,15 @@ class TransformerBlock(nn.Module):
     super().__init__()
     self.num_heads = num_heads
 
-    self.layer_norm1 = nn.LayerNorm(d) # TODO check
+    self.ln1 = nn.LayerNorm(d) # TODO check
     self.mha = MultiHeadAttentionBlock(num_heads, d // num_heads)
 
-    self.layer_norm2 = nn.LayerNorm(d) # TODO check
+    self.ln2 = nn.LayerNorm(d) # TODO check
     self.mlp = nn.Linear(in_features=d, out_features=d)
 
   def forward(self, x: Tensor):
-    x_skip_1 = x
-    x = self.layer_norm1(x)
-    x = self.mha.forward(x)
-    x += x_skip_1
-
-    x_skip_2 = x
-    x = self.layer_norm2(x)
-    x = self.mlp(x)
-    x += x_skip_2
-
+    x = self.mha(self.ln1(x)) + x
+    x = self.mlp(self.ln2(x)) + x
     return x
 
 
