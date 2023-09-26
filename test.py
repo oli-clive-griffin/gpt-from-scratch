@@ -3,7 +3,7 @@ from torch import Tensor
 import numpy as np
 from PIL import Image
 
-from main import (
+from model import (
   add_positional_encoding,
   positional_encoding,
   attention_matrix,
