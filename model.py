@@ -25,7 +25,6 @@ class AttentionBlock(nn.Module):
     K = self.k(x)
     V = self.v(x)
     xout = scaled_dot_product_attention(Q, K, V, self.tril[:T,:T])
-    breakpoint()
     return xout
 
 
@@ -98,10 +97,12 @@ class GPT(nn.Module):
     num_heads: int,
     num_blocks: int,
     block_size: int,
+    device: torch.device,
   ):
     super().__init__()
     d = d_in + d_pos_enc
     self.d_pos_enc = d_pos_enc
+    self.device = device
 
     self.embedding = nn.Embedding(dict_size, d_in)
     self.transformer_blocks = nn.Sequential(*[TransformerBlock(d, num_heads, block_size) for _ in range(num_blocks)])
@@ -109,7 +110,7 @@ class GPT(nn.Module):
 
   def forward(self, x: Tensor):
     x1 = self.embedding(x)
-    x2 = add_positional_encoding(x1, self.d_pos_enc)
+    x2 = self.add_positional_encoding(x1)
     x3 = self.transformer_blocks(x2)
     x4 = self.decoder(x3)
     return F.softmax(x4, dim=2)
@@ -119,19 +120,29 @@ class GPT(nn.Module):
     logits = rearrange(logits, 'b t c -> (b t) c')
     return logits, F.cross_entropy(logits, targets) #? ignore_index ?
 
+  def add_positional_encoding(self, x: Tensor) -> Tensor:
+    assert len(x.shape) == 3 # (batch_size, seq_lenth, d_in_out)
+
+    pos_enc = positional_encoding(x.shape[1], self.d_pos_enc)  # seq_lenth
+    batch_size = x.shape[0]
+    expanded = np.stack([pos_enc for _ in range(batch_size)], dtype=np.float32)
+    pos_tensor = torch.from_numpy(expanded).to(self.device)
+    return torch.cat((x, pos_tensor), dim=2) # cat on feature dim
+
 
 def scaled_dot_product_attention(q: Tensor, k: Tensor, v: Tensor, mask: Tensor = None) -> Tensor: # shape (batch_size, seq_length, dim_v)
   assert len(q.shape) == 3 and len(k.shape) == 3, 'expected both q and k to be 3d'
   attn_matrix = attention_matrix(q, k, mask)
-  d_k = torch.Tensor([k.shape[2]])
-  return (attn_matrix @ v) / torch.sqrt(d_k)
+  d_k = torch.Tensor([k.shape[2]]).to('mps')
+  ret = (attn_matrix @ v) / torch.sqrt(d_k)
+  return ret
 
 
 def attention_matrix(q: Tensor, k: Tensor, mask: Tensor = None):
-  attn_matrix = torch.matmul(q, k.transpose(-2, -1)).softmax(dim=2)
+  attn_matrix = torch.matmul(q, k.transpose(-2, -1))
   if mask is not None:
     attn_matrix = attn_matrix.masked_fill(mask == 0, float('-inf'))
-  return attn_matrix
+  return attn_matrix.softmax(dim=2)
 
 
 def positional_encoding(l: int, dim: int) -> np.ndarray:
@@ -141,12 +152,3 @@ def positional_encoding(l: int, dim: int) -> np.ndarray:
     a.append(trig_func(np.arange(l) * (i / (10_000**(2 * i / dim)))))
   return np.stack(a, axis=1)
 
-
-def add_positional_encoding(x: Tensor, dim: int) -> Tensor:
-  assert len(x.shape) == 3 # (batch_size, seq_lenth, d_in_out)
-
-  pos_enc = positional_encoding(x.shape[1], dim)  # seq_lenth
-  batch_size = x.shape[0]
-  expanded = np.stack([pos_enc for _ in range(batch_size)], dtype=np.float32)
-  pos_tensor = torch.from_numpy(expanded)
-  return torch.cat((x, pos_tensor), dim=2) # cat on feature dim
