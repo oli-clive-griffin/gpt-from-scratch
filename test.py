@@ -7,11 +7,13 @@ from main import (
   add_positional_encoding,
   positional_encoding,
   attention_matrix,
-  scaled_dot_product_self_attention,
+  scaled_dot_product_attention,
 )
 
 
+print('asdf')
 def green(s): return F"\033[92m{s}\033[0m"
+
 
 def test_positional_encoding():
   a = positional_encoding(200, 100)
@@ -51,9 +53,11 @@ def test_attention_matrix_mask():
   k = torch.rand((batch_size, seq_lenth, features))
   attn_matrix = attention_matrix(q, k, masked=True)
   batch1 = attn_matrix[0]
-  assert batch1[0][0] != 0 and batch1[0][1] == 0 and batch1[0][2] == 0
-  assert batch1[1][0] != 0 and batch1[1][1] != 0 and batch1[1][2] == 0
-  assert batch1[2][0] != 0 and batch1[2][1] != 0 and batch1[2][2] != 0
+  neg_inf = float('-inf')
+  print(batch1)
+  assert batch1[0][0] != neg_inf and batch1[0][1] == neg_inf and batch1[0][2] == neg_inf
+  assert batch1[1][0] != neg_inf and batch1[1][1] != neg_inf and batch1[1][2] == neg_inf
+  assert batch1[2][0] != neg_inf and batch1[2][1] != neg_inf and batch1[2][2] != neg_inf
   print(green('passed'))
 
 
@@ -61,25 +65,22 @@ def test_self_attention():
   batch_size = 1
   seq_lenth = 3
   features = 2
-  k = torch.Tensor([[
-    [1, 0],
-    [0, 1],
-    [-1, 0],
-  ]])
-  q = torch.Tensor([[
-    [-1, 1], # cares about a combination of idx 1 and 2
-    [-1, -1], # cares about only idx 2
-    [1, -1], # cares about only idx 0
-  ]])
-  v = torch.Tensor([[
-    [8, 9],
-    [4, 5],
-    [1, 6],
-  ]])
-  x = scaled_dot_product_self_attention(q, k, v)
+  k = torch.Tensor([[[1, 0],
+                     [0, 1],
+                     [-1, 0]]])
+  q = torch.Tensor([[[-1, 1], # cares about a combination of idx 1 and 2
+                     [-1, -1], # cares about only idx 2
+                     [1, -1]]]) # cares about only idx 0
+  v = torch.Tensor([[[8, 9],
+                     [4, 5],
+                     [1, 6]]])
+  x = scaled_dot_product_attention(q, k, v)
   assert x.shape == (batch_size, seq_lenth, features)
   # [-1, 1], # cares about a combination of idx 1 and 2
   assert x[0][0] == ((v[:,1] + v[:,2]) / 2)
   # [-1, -1], # cares about only idx 2
   # [1, -1], # cares about only idx 0
   print(green('passed'))
+
+if __name__ == "__main__":
+  test_attention_matrix_mask()

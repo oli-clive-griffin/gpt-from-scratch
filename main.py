@@ -1,38 +1,45 @@
 import torch
 from torch import nn, Tensor
+from torch.nn import functional as F
 import numpy as np
+from einops import rearrange
 
 
 class AttentionBlock(nn.Module):
   def __init__(
     self,
-    d_in = 16,
-    d_k = 16,
-    d_v = 32,
+    d_in,
+    d_k,
+    d_v,
+    block_size,
   ):
     super().__init__()
-    self.q = nn.Linear(in_features=d_in, out_features=d_k)
-    self.k = nn.Linear(in_features=d_in, out_features=d_k)
-    self.v = nn.Linear(in_features=d_in, out_features=d_v)
+    self.q = nn.Linear(d_in, d_k, bias=False)
+    self.k = nn.Linear(d_in, d_k, bias=False)
+    self.v = nn.Linear(d_in, d_v, bias=False)
+    self.register_buffer('tril', torch.tril(torch.ones((block_size, block_size))))
 
-  def forward(self, x: Tensor, masked = False):
+  def forward(self, x: Tensor):
+    B,T,C = x.shape
     Q = self.q(x)
     K = self.k(x)
     V = self.v(x)
-    x = scaled_dot_product_self_attention(Q, K, V, masked)
-    return x
+    xout = scaled_dot_product_attention(Q, K, V, self.tril[:T,:T])
+    breakpoint()
+    return xout
 
 
 class MultiHeadAttentionBlock(nn.Module):
   def __init__(
     self,
-    num_heads = 4,
-    d_per_head = 16,
+    num_heads,
+    d_per_head,
+    block_size,
   ):
     super().__init__()
     self.d_per_head = d_per_head
     self.num_heads = num_heads
-    self.heads = [AttentionBlock(d_per_head, d_per_head, d_per_head) for _ in range(num_heads)]
+    self.heads = nn.ModuleList([AttentionBlock(d_per_head, d_per_head, d_per_head, block_size) for _ in range(num_heads)])
 
   def forward(self, x: Tensor):
     d_in = x.shape[2]
@@ -48,57 +55,83 @@ class MultiHeadAttentionBlock(nn.Module):
     return torch.cat(xs, dim=2)
 
 
-class TransformerBlock(nn.Module):
+class FeedForward(nn.Module):
+  def __init__(self, d_in: int, d_out: int):
+    super().__init__()
+    self.mlp = nn.Sequential(
+      nn.Linear(d_in, d_out),
+      nn.ReLU(),
+    )
+  
+  def forward(self, x: Tensor):
+    return self.mlp(x)
 
+
+class TransformerBlock(nn.Module):
   def __init__(
     self,
-    d = 8,
-    num_heads = 4,
+    d,
+    num_heads,
+    block_size,
   ):
     super().__init__()
     self.num_heads = num_heads
 
     self.ln1 = nn.LayerNorm(d) # TODO check
-    self.mha = MultiHeadAttentionBlock(num_heads, d // num_heads)
+    self.mha = MultiHeadAttentionBlock(num_heads, d // num_heads, block_size)
 
     self.ln2 = nn.LayerNorm(d) # TODO check
-    self.mlp = nn.Linear(in_features=d, out_features=d)
+    self.ffwd = FeedForward(d, d)
 
-  def forward(self, x: Tensor):
-    x = self.mha(self.ln1(x)) + x
-    x = self.mlp(self.ln2(x)) + x
-    return x
+  def forward(self, x1: Tensor):
+    x2 = self.mha(self.ln1(x1)) + x1
+    x3 = self.ffwd(self.ln2(x2)) + x2
+    return x3
 
 
-class Sentimentalist(nn.Module):
-  def __init__(self, d_in: int, d_pos_enc: int, num_classes: int):
+class GPT(nn.Module):
+  def __init__(
+    self,
+    d_in: int,
+    d_pos_enc: int,
+    dict_size: int,
+    num_heads: int,
+    num_blocks: int,
+    block_size: int,
+  ):
     super().__init__()
     d = d_in + d_pos_enc
     self.d_pos_enc = d_pos_enc
-    self.transformer_blocks = [TransformerBlock(d) for _ in range(10)]
-    self.mlp = nn.Linear(in_features=d, out_features=num_classes)
-  
+
+    self.embedding = nn.Embedding(dict_size, d_in)
+    self.transformer_blocks = nn.Sequential(*[TransformerBlock(d, num_heads, block_size) for _ in range(num_blocks)])
+    self.decoder = nn.Linear(d, dict_size)
+
   def forward(self, x: Tensor):
-    x = add_positional_encoding(x, self.d_pos_enc)
+    x1 = self.embedding(x)
+    x2 = add_positional_encoding(x1, self.d_pos_enc)
+    x3 = self.transformer_blocks(x2)
+    x4 = self.decoder(x3)
+    return F.softmax(x4, dim=2)
+  
+  def forward_train(self, x: Tensor, targets: Tensor):
+    logits = self.forward(x)
+    logits = rearrange(logits, 'b t c -> (b t) c')
+    return logits, F.cross_entropy(logits, targets) #? ignore_index ?
 
-    for block in self.transformer_blocks:
-      x = block(x)
 
-    x = self.mlp(x[:,-1,:])
-
-    return nn.functional.softmax(x, dim=1)
-
-
-def scaled_dot_product_self_attention(q: Tensor, k: Tensor, v: Tensor, masked = False) -> Tensor: # shape (batch_size, seq_length, dim_v)
+def scaled_dot_product_attention(q: Tensor, k: Tensor, v: Tensor, mask: Tensor = None) -> Tensor: # shape (batch_size, seq_length, dim_v)
   assert len(q.shape) == 3 and len(k.shape) == 3, 'expected both q and k to be 3d'
-  attn_matrix = attention_matrix(q, k, masked)
+  attn_matrix = attention_matrix(q, k, mask)
   d_k = torch.Tensor([k.shape[2]])
   return (attn_matrix @ v) / torch.sqrt(d_k)
 
 
-def attention_matrix(q: Tensor, k: Tensor, masked = False):
-    attn_matrix = torch.matmul(q, k.transpose(dim0=1, dim1=2)).softmax(dim=2)
-    return torch.tril(attn_matrix) if masked else attn_matrix
+def attention_matrix(q: Tensor, k: Tensor, mask: Tensor = None):
+  attn_matrix = torch.matmul(q, k.transpose(-2, -1)).softmax(dim=2)
+  if mask is not None:
+    attn_matrix = attn_matrix.masked_fill(mask == 0, float('-inf'))
+  return attn_matrix
 
 
 def positional_encoding(l: int, dim: int) -> np.ndarray:
@@ -118,13 +151,42 @@ def add_positional_encoding(x: Tensor, dim: int) -> Tensor:
   pos_tensor = torch.from_numpy(expanded)
   return torch.cat((x, pos_tensor), dim=2) # cat on feature dim
 
-
 if __name__ == "__main__":
   batch_size = 20
   d_in = 64
-  d_enc = 64
-  d = d_in + d_enc
+  d_pos_enc = 64
+  block_size = 256
+
   seq_length = 100
-  input = Tensor(np.random.randn(batch_size, seq_length, d_in))
-  s = Sentimentalist(d_in, d_enc, 3)
-  x = s.forward(input)
+
+  with open('input.txt', 'r', encoding='utf-8') as f:
+    text = f.read()
+  
+  chars = sorted(list(set(text)))
+
+  char_to_idx = {ch: i for i, ch in enumerate(chars)}
+  idx_to_char = {i: ch for i, ch in enumerate(chars)}
+  encode = lambda str: [char_to_idx[ch] for ch in str]
+  decode = lambda idxs: ''.join([idx_to_char[i] for i in idxs])
+
+  data = torch.tensor(encode(text), dtype=torch.long)
+  train = data[:int(0.8*len(data))]
+  test = data[int(0.8*len(data)):]
+
+  gpt = GPT(d_in, d_pos_enc, len(chars), num_heads=4, num_blocks=4, block_size=block_size)
+  optimizer = torch.optim.Adam(gpt.parameters(), lr=1e-3)
+  batch_len = block_size * batch_size
+
+  for epoch in range(10):
+    for batch_idx in train // batch_len:
+      batch_x = train[batch_idx * batch_len : (batch_idx+1) * batch_len].reshape(batch_size, block_size)
+      batch_y = torch.roll(batch_x, -1).view(batch_len)
+
+      optimizer.zero_grad()
+      logits, loss = gpt.forward_train(batch_x, batch_y)
+
+
+      print(F"{epoch=} {loss.item()=}")
+      loss.backward()
+      optimizer.step()
+
