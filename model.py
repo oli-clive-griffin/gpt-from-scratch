@@ -113,16 +113,14 @@ class GPT(nn.Module):
         self.transformer_blocks = nn.Sequential(*[TransformerBlock(d_in, num_heads, block_size) for _ in range(num_blocks)])
         self.decoder = nn.Linear(d_in, dict_size)
 
-    def forward(self, x: Tensor):
+    def forward(self, x: Tensor, targets: Tensor | None = None) -> Tensor | tuple[Tensor, Tensor]:
         x1 = self.embedding(x)
         x2 = GPT._positional_encoding(x1.shape[1], x1.shape[2]).to(x.device) + x1
         x3 = self.transformer_blocks(x2)
-        x4 = self.decoder(x3)
-        return F.softmax(x4, dim=2)
-    
-    def forward_train(self, x: Tensor, targets: Tensor):
-        logits = self.forward(x)
-        return logits, F.cross_entropy(logits.view(-1, logits.size(-1)), targets.view(-1)) #?ignore_index ?this is for padding I believe
+        logits = self.decoder(x3)
+        if targets is not None:
+            return logits, F.cross_entropy(logits.view(-1, logits.size(-1)), targets.view(-1)) #?ignore_index ?this is for padding I believe
+        return logits
 
     @staticmethod
     def _positional_encoding(l: int, dim: int) -> Tensor:
@@ -137,6 +135,7 @@ class GPT(nn.Module):
         a = [start_char]
         for _ in range(max_len-1):
             so_far_pred = torch.stack(a).unsqueeze(0)
-            char = self.forward(so_far_pred)[0][0].multinomial(1)
+            logits: Tensor = self.forward(so_far_pred)
+            char = logits.softmax(dim=2)[0][0].multinomial(1)
             a.append(char[0])
         return [i.item() for i in a]
