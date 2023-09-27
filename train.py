@@ -8,7 +8,7 @@ def infinite():
     yield i
     i += 1
 
-batch_size = 256
+batch_size = 32
 d_in = 128
 block_size = 64
 train_pct = 0.8
@@ -40,13 +40,18 @@ if __name__ == "__main__":
 
   optimizer = torch.optim.Adam(model.parameters(), lr=3e-4)
   batch_len = block_size * batch_size
-  print(f"should do {len(train) // batch_len} batches per epoch")
-
+  batches = len(train) // batch_len
   for epoch in infinite():
-    for batch_idx in range(len(train) // batch_len):
+    padding = len(train) % batch_len
+
+    x = train[:-padding].view(batches, batch_size, block_size)[torch.randperm(batches)]
+    y = torch.roll(x, -1, dims=-1)
+
+    for batch_idx in range(batches):
+      batch_x = x[batch_idx]
+      batch_y = y[batch_idx]
+      
       model.train()
-      batch_x = train[batch_idx * batch_len : (batch_idx+1) * batch_len].reshape(batch_size, block_size)
-      batch_y = torch.roll(batch_x, -1, dims=1)
       optimizer.zero_grad()
       logits, loss = model.forward(batch_x, batch_y)
       loss.backward()
