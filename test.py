@@ -65,13 +65,13 @@ def test_self_attention():
   batch_size = 1
   seq_lenth = 3
   features = 2
-  k = torch.Tensor([[[1, 0],
+  k = torch.tensor([[[1, 0],
                      [0, 1],
                      [-1, 0]]])
-  q = torch.Tensor([[[-1, 1], # cares about a combination of idx 1 and 2
+  q = torch.tensor([[[-1, 1], # cares about a combination of idx 1 and 2
                      [-1, -1], # cares about only idx 2
                      [1, -1]]]) # cares about only idx 0
-  v = torch.Tensor([[[8, 9],
+  v = torch.tensor([[[8, 9],
                      [4, 5],
                      [1, 6]]])
   x = scaled_dot_product_attention(q, k, v)
