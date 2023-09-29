@@ -1,0 +1,252 @@
+2023-09-29 09:18:14,717 INFO    StreamThr :74845 [internal.py:wandb_internal():86] W&B internal server running at pid: 74845, started at: 2023-09-29 09:18:14.716793
+2023-09-29 09:18:14,719 DEBUG   HandlerThread:74845 [handler.py:handle_request():144] handle_request: status
+2023-09-29 09:18:14,720 INFO    WriterThread:74845 [datastore.py:open_for_write():85] open: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230929_091814-wn19o7mf/run-wn19o7mf.wandb
+2023-09-29 09:18:14,722 DEBUG   SenderThread:74845 [sender.py:send():379] send: header
+2023-09-29 09:18:14,734 DEBUG   SenderThread:74845 [sender.py:send():379] send: run
+2023-09-29 09:18:18,375 INFO    SenderThread:74845 [retry.py:__call__():172] Retry attempt failed:
+Traceback (most recent call last):
+  File "/Users/oliverclive-griffin/.local/share/virtualenvs/satellite-apc-model-dev-SYnPQYpy/lib/python3.10/site-packages/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/Users/oliverclive-griffin/.local/share/virtualenvs/satellite-apc-model-dev-SYnPQYpy/lib/python3.10/site-packages/urllib3/util/connection.py", line 72, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/Users/oliverclive-griffin/.asdf/installs/python/3.10.12/lib/python3.10/socket.py", line 955, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 8] nodename nor servname provided, or not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/oliverclive-griffin/.local/share/virtualenvs/satellite-apc-model-dev-SYnPQYpy/lib/python3.10/site-packages/urllib3/connectionpool.py", line 714, in urlopen
+    httplib_response = self._make_request(
+  File "/Users/oliverclive-griffin/.local/share/virtualenvs/satellite-apc-model-dev-SYnPQYpy/lib/python3.10/site-packages/urllib3/connectionpool.py", line 403, in _make_request
+    self._validate_conn(conn)
+  File "/Users/oliverclive-griffin/.local/share/virtualenvs/satellite-apc-model-dev-SYnPQYpy/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1053, in _validate_conn
+    conn.connect()
+  File "/Users/oliverclive-griffin/.local/share/virtualenvs/satellite-apc-model-dev-SYnPQYpy/lib/python3.10/site-packages/urllib3/connection.py", line 363, in connect
+    self.sock = conn = self._new_conn()
+  File "/Users/oliverclive-griffin/.local/share/virtualenvs/satellite-apc-model-dev-SYnPQYpy/lib/python3.10/site-packages/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x116596cb0>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/oliverclive-griffin/.local/share/virtualenvs/satellite-apc-model-dev-SYnPQYpy/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/Users/oliverclive-griffin/.local/share/virtualenvs/satellite-apc-model-dev-SYnPQYpy/lib/python3.10/site-packages/urllib3/connectionpool.py", line 798, in urlopen
+    retries = retries.increment(
+  File "/Users/oliverclive-griffin/.local/share/virtualenvs/satellite-apc-model-dev-SYnPQYpy/lib/python3.10/site-packages/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /graphql (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x116596cb0>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/oliverclive-griffin/.local/share/virtualenvs/satellite-apc-model-dev-SYnPQYpy/lib/python3.10/site-packages/wandb/sdk/lib/retry.py", line 131, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "/Users/oliverclive-griffin/.local/share/virtualenvs/satellite-apc-model-dev-SYnPQYpy/lib/python3.10/site-packages/wandb/sdk/internal/internal_api.py", line 358, in execute
+    return self.client.execute(*args, **kwargs)  # type: ignore
+  File "/Users/oliverclive-griffin/.local/share/virtualenvs/satellite-apc-model-dev-SYnPQYpy/lib/python3.10/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "/Users/oliverclive-griffin/.local/share/virtualenvs/satellite-apc-model-dev-SYnPQYpy/lib/python3.10/site-packages/wandb/vendor/gql-0.2.0/wandb_gql/client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "/Users/oliverclive-griffin/.local/share/virtualenvs/satellite-apc-model-dev-SYnPQYpy/lib/python3.10/site-packages/wandb/sdk/lib/gql_request.py", line 55, in execute
+    request = self.session.post(self.url, **post_args)
+  File "/Users/oliverclive-griffin/.local/share/virtualenvs/satellite-apc-model-dev-SYnPQYpy/lib/python3.10/site-packages/requests/sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+  File "/Users/oliverclive-griffin/.local/share/virtualenvs/satellite-apc-model-dev-SYnPQYpy/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/oliverclive-griffin/.local/share/virtualenvs/satellite-apc-model-dev-SYnPQYpy/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/oliverclive-griffin/.local/share/virtualenvs/satellite-apc-model-dev-SYnPQYpy/lib/python3.10/site-packages/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /graphql (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x116596cb0>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+2023-09-29 09:18:19,759 DEBUG   HandlerThread:74845 [handler.py:handle_request():144] handle_request: keepalive
+2023-09-29 09:18:24,777 DEBUG   HandlerThread:74845 [handler.py:handle_request():144] handle_request: keepalive
+2023-09-29 09:18:29,801 DEBUG   HandlerThread:74845 [handler.py:handle_request():144] handle_request: keepalive
+2023-09-29 09:18:33,425 INFO    SenderThread:74845 [dir_watcher.py:__init__():211] watching files in: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230929_091814-wn19o7mf/files
+2023-09-29 09:18:33,425 INFO    SenderThread:74845 [sender.py:_start_run_threads():1121] run started: wn19o7mf with start time 1695932294.717767
+2023-09-29 09:18:33,426 DEBUG   HandlerThread:74845 [handler.py:handle_request():144] handle_request: status_report
+2023-09-29 09:18:33,430 DEBUG   HandlerThread:74845 [handler.py:handle_request():144] handle_request: check_version
+2023-09-29 09:18:33,430 DEBUG   SenderThread:74845 [sender.py:send_request():406] send_request: check_version
+2023-09-29 09:18:34,848 DEBUG   HandlerThread:74845 [handler.py:handle_request():144] handle_request: run_start
+2023-09-29 09:18:34,863 DEBUG   HandlerThread:74845 [system_info.py:__init__():32] System info init
+2023-09-29 09:18:34,863 DEBUG   HandlerThread:74845 [system_info.py:__init__():47] System info init done
+2023-09-29 09:18:34,863 INFO    HandlerThread:74845 [system_monitor.py:start():181] Starting system monitor
+2023-09-29 09:18:34,864 INFO    SystemMonitor:74845 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-09-29 09:18:34,864 INFO    HandlerThread:74845 [system_monitor.py:probe():201] Collecting system info
+2023-09-29 09:18:34,865 INFO    SystemMonitor:74845 [interfaces.py:start():190] Started cpu monitoring
+2023-09-29 09:18:34,866 DEBUG   HandlerThread:74845 [system_info.py:probe():196] Probing system
+2023-09-29 09:18:34,866 INFO    SystemMonitor:74845 [interfaces.py:start():190] Started disk monitoring
+2023-09-29 09:18:34,869 INFO    SystemMonitor:74845 [interfaces.py:start():190] Started gpuapple monitoring
+2023-09-29 09:18:34,871 INFO    SystemMonitor:74845 [interfaces.py:start():190] Started memory monitoring
+2023-09-29 09:18:34,872 INFO    SystemMonitor:74845 [interfaces.py:start():190] Started network monitoring
+2023-09-29 09:18:34,874 DEBUG   HandlerThread:74845 [system_info.py:_probe_git():181] Probing git
+2023-09-29 09:18:34,887 DEBUG   HandlerThread:74845 [system_info.py:_probe_git():189] Probing git done
+2023-09-29 09:18:34,887 DEBUG   HandlerThread:74845 [system_info.py:probe():244] Probing system done
+2023-09-29 09:18:34,887 DEBUG   HandlerThread:74845 [system_monitor.py:probe():210] {'os': 'macOS-13.0.1-arm64-arm-64bit', 'python': '3.10.12', 'heartbeatAt': '2023-09-28T20:18:34.866898', 'startedAt': '2023-09-28T20:18:14.708703', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': '/Users/oliverclive-griffin/personal/transformer-from-scratch/train.py', 'codePathLocal': 'train.py', 'codePath': 'train.py', 'git': {'remote': 'https://github.com/oli-clive-griffin/transformer-from-scratch.git', 'commit': '8de512886c7232ab4991b1214cf4e304ccc042af'}, 'email': 'o.clivegriffin@gmail.com', 'root': '/Users/oliverclive-griffin/personal/transformer-from-scratch', 'host': 'Olivers-MacBook-Pro-2.local', 'username': 'oliverclive-griffin', 'executable': '/Users/oliverclive-griffin/.local/share/virtualenvs/satellite-apc-model-dev-SYnPQYpy/bin/python3', 'cpu_count': 10, 'cpu_count_logical': 10, 'disk': {'/': {'total': 460.4317207336426, 'used': 12.081615447998047}}, 'gpuapple': {'type': 'arm', 'vendor': 'Apple'}, 'memory': {'total': 32.0}}
+2023-09-29 09:18:34,887 INFO    HandlerThread:74845 [system_monitor.py:probe():211] Finished collecting system info
+2023-09-29 09:18:34,887 INFO    HandlerThread:74845 [system_monitor.py:probe():214] Publishing system info
+2023-09-29 09:18:34,887 DEBUG   HandlerThread:74845 [system_info.py:_save_pip():52] Saving list of pip packages installed into the current environment
+2023-09-29 09:18:34,888 DEBUG   HandlerThread:74845 [system_info.py:_save_pip():68] Saving pip packages done
+2023-09-29 09:18:34,888 INFO    HandlerThread:74845 [system_monitor.py:probe():216] Finished publishing system info
+2023-09-29 09:18:34,896 DEBUG   SenderThread:74845 [sender.py:send():379] send: files
+2023-09-29 09:18:34,896 INFO    SenderThread:74845 [sender.py:_save_file():1375] saving file wandb-metadata.json with policy now
+2023-09-29 09:18:34,900 DEBUG   HandlerThread:74845 [handler.py:handle_request():144] handle_request: internal_messages
+2023-09-29 09:18:34,900 DEBUG   HandlerThread:74845 [handler.py:handle_request():144] handle_request: stop_status
+2023-09-29 09:18:34,900 DEBUG   SenderThread:74845 [sender.py:send():379] send: telemetry
+2023-09-29 09:18:34,900 DEBUG   SenderThread:74845 [sender.py:send_request():406] send_request: stop_status
+2023-09-29 09:18:34,900 DEBUG   HandlerThread:74845 [handler.py:handle_request():144] handle_request: partial_history
+2023-09-29 09:18:35,434 INFO    Thread-12 :74845 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230929_091814-wn19o7mf/files/requirements.txt
+2023-09-29 09:18:35,434 INFO    Thread-12 :74845 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230929_091814-wn19o7mf/files/wandb-metadata.json
+2023-09-29 09:18:35,504 DEBUG   SenderThread:74845 [sender.py:send():379] send: history
+2023-09-29 09:18:35,504 DEBUG   SenderThread:74845 [sender.py:send_request():406] send_request: summary_record
+2023-09-29 09:18:35,504 INFO    SenderThread:74845 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2023-09-29 09:18:35,505 DEBUG   SenderThread:74845 [sender.py:send():379] send: exit
+2023-09-29 09:18:35,505 INFO    SenderThread:74845 [sender.py:send_exit():584] handling exit code: 1
+2023-09-29 09:18:35,505 INFO    SenderThread:74845 [sender.py:send_exit():586] handling runtime: 0
+2023-09-29 09:18:35,505 INFO    SenderThread:74845 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2023-09-29 09:18:35,505 INFO    SenderThread:74845 [sender.py:send_exit():592] send defer
+2023-09-29 09:18:35,505 DEBUG   HandlerThread:74845 [handler.py:handle_request():144] handle_request: defer
+2023-09-29 09:18:35,505 INFO    HandlerThread:74845 [handler.py:handle_request_defer():170] handle defer: 0
+2023-09-29 09:18:35,505 DEBUG   SenderThread:74845 [sender.py:send_request():406] send_request: defer
+2023-09-29 09:18:35,505 INFO    SenderThread:74845 [sender.py:send_request_defer():608] handle sender defer: 0
+2023-09-29 09:18:35,505 INFO    SenderThread:74845 [sender.py:transition_state():612] send defer: 1
+2023-09-29 09:18:35,505 DEBUG   HandlerThread:74845 [handler.py:handle_request():144] handle_request: defer
+2023-09-29 09:18:35,505 INFO    HandlerThread:74845 [handler.py:handle_request_defer():170] handle defer: 1
+2023-09-29 09:18:35,505 DEBUG   SenderThread:74845 [sender.py:send_request():406] send_request: defer
+2023-09-29 09:18:35,506 INFO    SenderThread:74845 [sender.py:send_request_defer():608] handle sender defer: 1
+2023-09-29 09:18:35,506 INFO    SenderThread:74845 [sender.py:transition_state():612] send defer: 2
+2023-09-29 09:18:35,506 DEBUG   HandlerThread:74845 [handler.py:handle_request():144] handle_request: defer
+2023-09-29 09:18:35,506 INFO    HandlerThread:74845 [handler.py:handle_request_defer():170] handle defer: 2
+2023-09-29 09:18:35,506 INFO    HandlerThread:74845 [system_monitor.py:finish():190] Stopping system monitor
+2023-09-29 09:18:35,506 INFO    HandlerThread:74845 [interfaces.py:finish():202] Joined cpu monitor
+2023-09-29 09:18:35,506 INFO    HandlerThread:74845 [interfaces.py:finish():202] Joined disk monitor
+2023-09-29 09:18:35,506 DEBUG   SystemMonitor:74845 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2023-09-29 09:18:35,506 DEBUG   SystemMonitor:74845 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2023-09-29 09:18:35,506 DEBUG   SystemMonitor:74845 [system_monitor.py:_start():170] Publishing last batch of metrics
+2023-09-29 09:18:35,685 INFO    HandlerThread:74845 [interfaces.py:finish():202] Joined gpuapple monitor
+2023-09-29 09:18:35,685 INFO    HandlerThread:74845 [interfaces.py:finish():202] Joined memory monitor
+2023-09-29 09:18:35,685 INFO    HandlerThread:74845 [interfaces.py:finish():202] Joined network monitor
+2023-09-29 09:18:35,685 DEBUG   SenderThread:74845 [sender.py:send_request():406] send_request: defer
+2023-09-29 09:18:35,685 INFO    SenderThread:74845 [sender.py:send_request_defer():608] handle sender defer: 2
+2023-09-29 09:18:35,686 INFO    SenderThread:74845 [sender.py:transition_state():612] send defer: 3
+2023-09-29 09:18:35,686 DEBUG   SenderThread:74845 [sender.py:send():379] send: telemetry
+2023-09-29 09:18:35,686 DEBUG   SenderThread:74845 [sender.py:send():379] send: stats
+2023-09-29 09:18:35,686 DEBUG   HandlerThread:74845 [handler.py:handle_request():144] handle_request: defer
+2023-09-29 09:18:35,686 INFO    HandlerThread:74845 [handler.py:handle_request_defer():170] handle defer: 3
+2023-09-29 09:18:35,686 DEBUG   SenderThread:74845 [sender.py:send_request():406] send_request: defer
+2023-09-29 09:18:35,686 INFO    SenderThread:74845 [sender.py:send_request_defer():608] handle sender defer: 3
+2023-09-29 09:18:35,686 INFO    SenderThread:74845 [sender.py:transition_state():612] send defer: 4
+2023-09-29 09:18:35,686 DEBUG   HandlerThread:74845 [handler.py:handle_request():144] handle_request: defer
+2023-09-29 09:18:35,686 INFO    HandlerThread:74845 [handler.py:handle_request_defer():170] handle defer: 4
+2023-09-29 09:18:35,686 DEBUG   SenderThread:74845 [sender.py:send_request():406] send_request: defer
+2023-09-29 09:18:35,686 INFO    SenderThread:74845 [sender.py:send_request_defer():608] handle sender defer: 4
+2023-09-29 09:18:35,686 INFO    SenderThread:74845 [sender.py:transition_state():612] send defer: 5
+2023-09-29 09:18:35,686 DEBUG   HandlerThread:74845 [handler.py:handle_request():144] handle_request: defer
+2023-09-29 09:18:35,686 INFO    HandlerThread:74845 [handler.py:handle_request_defer():170] handle defer: 5
+2023-09-29 09:18:35,686 DEBUG   SenderThread:74845 [sender.py:send():379] send: summary
+2023-09-29 09:18:35,686 INFO    SenderThread:74845 [sender.py:_save_file():1375] saving file wandb-summary.json with policy end
+2023-09-29 09:18:35,687 DEBUG   SenderThread:74845 [sender.py:send_request():406] send_request: defer
+2023-09-29 09:18:35,687 INFO    SenderThread:74845 [sender.py:send_request_defer():608] handle sender defer: 5
+2023-09-29 09:18:35,687 INFO    SenderThread:74845 [sender.py:transition_state():612] send defer: 6
+2023-09-29 09:18:35,687 DEBUG   HandlerThread:74845 [handler.py:handle_request():144] handle_request: defer
+2023-09-29 09:18:35,687 INFO    HandlerThread:74845 [handler.py:handle_request_defer():170] handle defer: 6
+2023-09-29 09:18:35,687 DEBUG   SenderThread:74845 [sender.py:send_request():406] send_request: defer
+2023-09-29 09:18:35,687 INFO    SenderThread:74845 [sender.py:send_request_defer():608] handle sender defer: 6
+2023-09-29 09:18:35,689 DEBUG   HandlerThread:74845 [handler.py:handle_request():144] handle_request: status_report
+2023-09-29 09:18:35,952 DEBUG   HandlerThread:74845 [handler.py:handle_request():144] handle_request: poll_exit
+2023-09-29 09:18:36,051 INFO    SenderThread:74845 [sender.py:transition_state():612] send defer: 7
+2023-09-29 09:18:36,052 DEBUG   SenderThread:74845 [sender.py:send_request():406] send_request: poll_exit
+2023-09-29 09:18:36,052 DEBUG   HandlerThread:74845 [handler.py:handle_request():144] handle_request: defer
+2023-09-29 09:18:36,052 INFO    HandlerThread:74845 [handler.py:handle_request_defer():170] handle defer: 7
+2023-09-29 09:18:36,052 DEBUG   SenderThread:74845 [sender.py:send_request():406] send_request: defer
+2023-09-29 09:18:36,053 INFO    SenderThread:74845 [sender.py:send_request_defer():608] handle sender defer: 7
+2023-09-29 09:18:36,440 INFO    Thread-12 :74845 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230929_091814-wn19o7mf/files/config.yaml
+2023-09-29 09:18:36,440 INFO    Thread-12 :74845 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230929_091814-wn19o7mf/files/output.log
+2023-09-29 09:18:36,441 INFO    Thread-12 :74845 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230929_091814-wn19o7mf/files/wandb-summary.json
+2023-09-29 09:18:36,526 INFO    wandb-upload_0:74845 [upload_job.py:push():131] Uploaded file /var/folders/yq/mgyj3_d94q74pzrj921nxcbh0000gn/T/tmp0a2n8mxmwandb/zkwbtey1-wandb-metadata.json
+2023-09-29 09:18:36,959 DEBUG   HandlerThread:74845 [handler.py:handle_request():144] handle_request: poll_exit
+2023-09-29 09:18:37,520 INFO    SenderThread:74845 [sender.py:transition_state():612] send defer: 8
+2023-09-29 09:18:37,520 DEBUG   SenderThread:74845 [sender.py:send_request():406] send_request: poll_exit
+2023-09-29 09:18:37,520 DEBUG   HandlerThread:74845 [handler.py:handle_request():144] handle_request: defer
+2023-09-29 09:18:37,521 INFO    HandlerThread:74845 [handler.py:handle_request_defer():170] handle defer: 8
+2023-09-29 09:18:37,521 DEBUG   SenderThread:74845 [sender.py:send_request():406] send_request: defer
+2023-09-29 09:18:37,521 INFO    SenderThread:74845 [sender.py:send_request_defer():608] handle sender defer: 8
+2023-09-29 09:18:37,521 INFO    SenderThread:74845 [job_builder.py:build():281] Attempting to build job artifact
+2023-09-29 09:18:37,522 INFO    SenderThread:74845 [job_builder.py:_get_source_type():393] is repo sourced job
+2023-09-29 09:18:37,524 INFO    SenderThread:74845 [job_builder.py:build():369] adding wandb-job metadata file
+2023-09-29 09:18:37,527 INFO    SenderThread:74845 [sender.py:transition_state():612] send defer: 9
+2023-09-29 09:18:37,528 DEBUG   HandlerThread:74845 [handler.py:handle_request():144] handle_request: defer
+2023-09-29 09:18:37,528 INFO    HandlerThread:74845 [handler.py:handle_request_defer():170] handle defer: 9
+2023-09-29 09:18:37,528 DEBUG   SenderThread:74845 [sender.py:send():379] send: artifact
+2023-09-29 09:18:37,963 DEBUG   HandlerThread:74845 [handler.py:handle_request():144] handle_request: poll_exit
+2023-09-29 09:18:38,451 INFO    Thread-12 :74845 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230929_091814-wn19o7mf/files/output.log
+2023-09-29 09:18:41,569 INFO    wandb-upload_0:74845 [upload_job.py:push():89] Uploaded file /Users/oliverclive-griffin/Library/Application Support/wandb/artifacts/staging/tmpzf6m8eco
+2023-09-29 09:18:41,570 INFO    wandb-upload_1:74845 [upload_job.py:push():89] Uploaded file /Users/oliverclive-griffin/Library/Application Support/wandb/artifacts/staging/tmp33p49lb8
+2023-09-29 09:18:42,988 DEBUG   HandlerThread:74845 [handler.py:handle_request():144] handle_request: keepalive
+2023-09-29 09:18:44,030 INFO    SenderThread:74845 [sender.py:send_artifact():1453] sent artifact job-https___github.com_oli-clive-griffin_transformer-from-scratch.git_train.py - {'id': 'QXJ0aWZhY3Q6NTg3Nzk2MDU0', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjEwMjA0OTE1Nw==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NTg3MjMxNTE4', 'versionIndex': 5}}}
+2023-09-29 09:18:44,030 DEBUG   SenderThread:74845 [sender.py:send_request():406] send_request: defer
+2023-09-29 09:18:44,030 INFO    SenderThread:74845 [sender.py:send_request_defer():608] handle sender defer: 9
+2023-09-29 09:18:44,030 INFO    SenderThread:74845 [dir_watcher.py:finish():358] shutting down directory watcher
+2023-09-29 09:18:44,030 DEBUG   HandlerThread:74845 [handler.py:handle_request():144] handle_request: status_report
+2023-09-29 09:18:44,476 INFO    SenderThread:74845 [dir_watcher.py:finish():388] scan: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230929_091814-wn19o7mf/files
+2023-09-29 09:18:44,477 INFO    SenderThread:74845 [dir_watcher.py:finish():402] scan save: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230929_091814-wn19o7mf/files/requirements.txt requirements.txt
+2023-09-29 09:18:44,477 INFO    SenderThread:74845 [dir_watcher.py:finish():402] scan save: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230929_091814-wn19o7mf/files/output.log output.log
+2023-09-29 09:18:44,480 INFO    SenderThread:74845 [dir_watcher.py:finish():402] scan save: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230929_091814-wn19o7mf/files/config.yaml config.yaml
+2023-09-29 09:18:44,483 INFO    SenderThread:74845 [dir_watcher.py:finish():402] scan save: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230929_091814-wn19o7mf/files/wandb-summary.json wandb-summary.json
+2023-09-29 09:18:44,485 INFO    SenderThread:74845 [dir_watcher.py:finish():402] scan save: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230929_091814-wn19o7mf/files/wandb-metadata.json wandb-metadata.json
+2023-09-29 09:18:44,486 INFO    SenderThread:74845 [sender.py:transition_state():612] send defer: 10
+2023-09-29 09:18:44,486 DEBUG   SenderThread:74845 [sender.py:send_request():406] send_request: poll_exit
+2023-09-29 09:18:44,487 DEBUG   HandlerThread:74845 [handler.py:handle_request():144] handle_request: defer
+2023-09-29 09:18:44,489 INFO    HandlerThread:74845 [handler.py:handle_request_defer():170] handle defer: 10
+2023-09-29 09:18:44,489 DEBUG   SenderThread:74845 [sender.py:send_request():406] send_request: defer
+2023-09-29 09:18:44,489 INFO    SenderThread:74845 [sender.py:send_request_defer():608] handle sender defer: 10
+2023-09-29 09:18:44,489 INFO    SenderThread:74845 [file_pusher.py:finish():175] shutting down file pusher
+2023-09-29 09:18:45,225 INFO    wandb-upload_1:74845 [upload_job.py:push():131] Uploaded file /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230929_091814-wn19o7mf/files/output.log
+2023-09-29 09:18:45,558 INFO    wandb-upload_0:74845 [upload_job.py:push():131] Uploaded file /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230929_091814-wn19o7mf/files/requirements.txt
+2023-09-29 09:18:45,745 INFO    wandb-upload_3:74845 [upload_job.py:push():131] Uploaded file /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230929_091814-wn19o7mf/files/wandb-summary.json
+2023-09-29 09:18:45,747 INFO    wandb-upload_2:74845 [upload_job.py:push():131] Uploaded file /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230929_091814-wn19o7mf/files/config.yaml
+2023-09-29 09:18:45,952 INFO    Thread-11 (_thread_body):74845 [sender.py:transition_state():612] send defer: 11
+2023-09-29 09:18:45,953 DEBUG   HandlerThread:74845 [handler.py:handle_request():144] handle_request: defer
+2023-09-29 09:18:45,953 INFO    HandlerThread:74845 [handler.py:handle_request_defer():170] handle defer: 11
+2023-09-29 09:18:45,954 DEBUG   SenderThread:74845 [sender.py:send_request():406] send_request: defer
+2023-09-29 09:18:45,954 INFO    SenderThread:74845 [sender.py:send_request_defer():608] handle sender defer: 11
+2023-09-29 09:18:45,954 INFO    SenderThread:74845 [file_pusher.py:join():181] waiting for file pusher
+2023-09-29 09:18:45,954 INFO    SenderThread:74845 [sender.py:transition_state():612] send defer: 12
+2023-09-29 09:18:45,954 DEBUG   HandlerThread:74845 [handler.py:handle_request():144] handle_request: defer
+2023-09-29 09:18:45,955 INFO    HandlerThread:74845 [handler.py:handle_request_defer():170] handle defer: 12
+2023-09-29 09:18:45,956 DEBUG   SenderThread:74845 [sender.py:send_request():406] send_request: defer
+2023-09-29 09:18:45,956 INFO    SenderThread:74845 [sender.py:send_request_defer():608] handle sender defer: 12
+2023-09-29 09:18:45,957 INFO    SenderThread:74845 [file_stream.py:finish():594] file stream finish called
+2023-09-29 09:18:46,680 INFO    SenderThread:74845 [file_stream.py:finish():598] file stream finish is done
+2023-09-29 09:18:46,680 INFO    SenderThread:74845 [sender.py:transition_state():612] send defer: 13
+2023-09-29 09:18:46,681 DEBUG   HandlerThread:74845 [handler.py:handle_request():144] handle_request: defer
+2023-09-29 09:18:46,681 INFO    HandlerThread:74845 [handler.py:handle_request_defer():170] handle defer: 13
+2023-09-29 09:18:46,682 DEBUG   SenderThread:74845 [sender.py:send_request():406] send_request: defer
+2023-09-29 09:18:46,682 INFO    SenderThread:74845 [sender.py:send_request_defer():608] handle sender defer: 13
+2023-09-29 09:18:46,682 INFO    SenderThread:74845 [sender.py:transition_state():612] send defer: 14
+2023-09-29 09:18:46,683 DEBUG   HandlerThread:74845 [handler.py:handle_request():144] handle_request: defer
+2023-09-29 09:18:46,683 INFO    HandlerThread:74845 [handler.py:handle_request_defer():170] handle defer: 14
+2023-09-29 09:18:46,683 DEBUG   SenderThread:74845 [sender.py:send():379] send: final
+2023-09-29 09:18:46,684 DEBUG   SenderThread:74845 [sender.py:send():379] send: footer
+2023-09-29 09:18:46,684 DEBUG   SenderThread:74845 [sender.py:send_request():406] send_request: defer
+2023-09-29 09:18:46,684 INFO    SenderThread:74845 [sender.py:send_request_defer():608] handle sender defer: 14
+2023-09-29 09:18:46,684 DEBUG   HandlerThread:74845 [handler.py:handle_request():144] handle_request: poll_exit
+2023-09-29 09:18:46,685 DEBUG   HandlerThread:74845 [handler.py:handle_request():144] handle_request: server_info
+2023-09-29 09:18:46,685 DEBUG   SenderThread:74845 [sender.py:send_request():406] send_request: poll_exit
+2023-09-29 09:18:46,685 DEBUG   SenderThread:74845 [sender.py:send_request():406] send_request: server_info
+2023-09-29 09:18:46,687 DEBUG   HandlerThread:74845 [handler.py:handle_request():144] handle_request: get_summary
+2023-09-29 09:18:46,688 DEBUG   HandlerThread:74845 [handler.py:handle_request():144] handle_request: sampled_history
+2023-09-29 09:18:46,688 DEBUG   HandlerThread:74845 [handler.py:handle_request():144] handle_request: internal_messages
+2023-09-29 09:18:46,689 DEBUG   HandlerThread:74845 [handler.py:handle_request():144] handle_request: job_info
+2023-09-29 09:18:47,029 DEBUG   SenderThread:74845 [sender.py:send_request():406] send_request: job_info
+2023-09-29 09:18:47,029 INFO    MainThread:74845 [wandb_run.py:_footer_history_summary_info():3557] rendering history
+2023-09-29 09:18:47,030 INFO    MainThread:74845 [wandb_run.py:_footer_history_summary_info():3589] rendering summary
+2023-09-29 09:18:47,030 INFO    MainThread:74845 [wandb_run.py:_footer_sync_info():3516] logging synced files
+2023-09-29 09:18:47,030 DEBUG   HandlerThread:74845 [handler.py:handle_request():144] handle_request: shutdown
+2023-09-29 09:18:47,031 INFO    HandlerThread:74845 [handler.py:finish():840] shutting down handler
+2023-09-29 09:18:47,694 INFO    WriterThread:74845 [datastore.py:close():294] close: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230929_091814-wn19o7mf/run-wn19o7mf.wandb
+2023-09-29 09:18:48,034 INFO    SenderThread:74845 [sender.py:finish():1531] shutting down sender
+2023-09-29 09:18:48,035 INFO    SenderThread:74845 [file_pusher.py:finish():175] shutting down file pusher
+2023-09-29 09:18:48,035 INFO    SenderThread:74845 [file_pusher.py:join():181] waiting for file pusher

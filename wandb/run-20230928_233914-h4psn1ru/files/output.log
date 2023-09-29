@@ -1,0 +1,97 @@
+/Users/oliverclive-griffin/personal/transformer-from-scratch/train.py:63: UserWarning: The operator 'aten::roll' is not currently supported on the MPS backend and will fall back to run on the CPU. This may have performance implications. (Triggered internally at /Users/runner/work/pytorch/pytorch/pytorch/aten/src/ATen/mps/MPSFallback.mm:11.)
+  y = torch.roll(x, -1, dims=-1)
+epoch 0 batch 0 loss 3.953507423400879
+epoch 0 batch 1 loss 3.5881381034851074
+epoch 0 batch 2 loss 3.322605848312378
+epoch 0 batch 3 loss 3.142054319381714
+epoch 0 batch 4 loss 3.032841444015503
+epoch 0 batch 5 loss 2.9143576622009277
+epoch 0 batch 6 loss 2.867171287536621
+epoch 0 batch 7 loss 2.8011059761047363
+epoch 0 batch 8 loss 2.758126735687256
+epoch 0 batch 9 loss 2.7336912155151367
+epoch 0 batch 10 loss 2.731477737426758
+epoch 0 batch 11 loss 2.7028117179870605
+epoch 0 batch 12 loss 2.6875159740448
+epoch 0 batch 13 loss 2.645686149597168
+epoch 0 batch 14 loss 2.6513190269470215
+epoch 0 batch 15 loss 2.6207275390625
+epoch 0 batch 16 loss 2.598621129989624
+epoch 0
+<>l .laoellnyilte locoee lalaeoic \n ollelcal<>
+epoch 1 batch 0 loss 2.630678176879883
+epoch 1 batch 1 loss 2.594510316848755
+epoch 1 batch 2 loss 2.592129945755005
+epoch 1 batch 3 loss 2.5869548320770264
+epoch 1 batch 4 loss 2.5595672130584717
+epoch 1 batch 5 loss 2.544332504272461
+epoch 1 batch 6 loss 2.559946298599243
+epoch 1 batch 7 loss 2.5397539138793945
+epoch 1 batch 8 loss 2.54795503616333
+epoch 1 batch 9 loss 2.559328556060791
+epoch 1 batch 10 loss 2.5573501586914062
+epoch 1 batch 11 loss 2.532257080078125
+epoch 1 batch 12 loss 2.509180784225464
+epoch 1 batch 13 loss 2.513362407684326
+epoch 1 batch 14 loss 2.521730422973633
+epoch 1 batch 15 loss 2.52835750579834
+epoch 1 batch 16 loss 2.5334677696228027
+epoch 1
+<>d   ; ,s     e,,  ,    d e,y  lo  ,s    f <>
+epoch 2 batch 0 loss 2.4961090087890625
+epoch 2 batch 1 loss 2.5275697708129883
+epoch 2 batch 2 loss 2.486402988433838
+epoch 2 batch 3 loss 2.5237629413604736
+epoch 2 batch 4 loss 2.5115175247192383
+epoch 2 batch 5 loss 2.4760704040527344
+epoch 2 batch 6 loss 2.501783847808838
+epoch 2 batch 7 loss 2.508615255355835
+epoch 2 batch 8 loss 2.5306594371795654
+epoch 2 batch 9 loss 2.511730194091797
+epoch 2 batch 10 loss 2.499270439147949
+epoch 2 batch 11 loss 2.4903712272644043
+epoch 2 batch 12 loss 2.4921910762786865
+epoch 2 batch 13 loss 2.489999771118164
+epoch 2 batch 14 loss 2.497323513031006
+epoch 2 batch 15 loss 2.486048698425293
+epoch 2 batch 16 loss 2.5051941871643066
+epoch 2
+<>roig   sao;ad ,rlkya:krudoiyrte siesktmo i<>
+epoch 3 batch 0 loss 2.4596166610717773
+epoch 3 batch 1 loss 2.468069553375244
+epoch 3 batch 2 loss 2.478607416152954
+epoch 3 batch 3 loss 2.4765005111694336
+epoch 3 batch 4 loss 2.499797821044922
+epoch 3 batch 5 loss 2.4897501468658447
+epoch 3 batch 6 loss 2.493446111679077
+epoch 3 batch 7 loss 2.4905810356140137
+epoch 3 batch 8 loss 2.4951629638671875
+epoch 3 batch 9 loss 2.487961530685425
+epoch 3 batch 10 loss 2.5105648040771484
+epoch 3 batch 11 loss 2.4741098880767822
+epoch 3 batch 12 loss 2.4873151779174805
+epoch 3 batch 13 loss 2.4735569953918457
+epoch 3 batch 14 loss 2.478201389312744
+epoch 3 batch 15 loss 2.4766783714294434
+epoch 3 batch 16 loss 2.4801506996154785
+epoch 3
+<>uttncnlr r\nrsmss r! n ntstsstnedpsnlss pn <>
+epoch 4 batch 0 loss 2.485894203186035
+epoch 4 batch 1 loss 2.470820665359497
+epoch 4 batch 2 loss 2.4923250675201416
+epoch 4 batch 3 loss 2.477281332015991
+epoch 4 batch 4 loss 2.4981439113616943
+epoch 4 batch 5 loss 2.4647936820983887
+epoch 4 batch 6 loss 2.479177951812744
+epoch 4 batch 7 loss 2.4662108421325684
+epoch 4 batch 8 loss 2.474752902984619
+epoch 4 batch 9 loss 2.4920105934143066
+epoch 4 batch 10 loss 2.469250202178955
+Traceback (most recent call last):
+  File "/Users/oliverclive-griffin/personal/transformer-from-scratch/train.py", line 74, in <module>
+    loss.backward()
+  File "/Users/oliverclive-griffin/.local/share/virtualenvs/transformer-from-scratch-IzBRPy8T/lib/python3.11/site-packages/torch/_tensor.py", line 487, in backward
+    torch.autograd.backward(
+  File "/Users/oliverclive-griffin/.local/share/virtualenvs/transformer-from-scratch-IzBRPy8T/lib/python3.11/site-packages/torch/autograd/__init__.py", line 200, in backward
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt

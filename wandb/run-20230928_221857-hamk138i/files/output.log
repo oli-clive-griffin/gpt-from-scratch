@@ -1,0 +1,78 @@
+/Users/oliverclive-griffin/personal/transformer-from-scratch/train.py:66: UserWarning: The operator 'aten::roll' is not currently supported on the MPS backend and will fall back to run on the CPU. This may have performance implications. (Triggered internally at /Users/runner/work/pytorch/pytorch/pytorch/aten/src/ATen/mps/MPSFallback.mm:11.)
+  y = torch.roll(x, -1, dims=-1)
+epoch 0 batch 0 loss 4.006497383117676
+epoch 0 batch 1 loss 3.8714962005615234
+epoch 0 batch 2 loss 3.810511589050293
+epoch 0 batch 3 loss 3.7001781463623047
+epoch 0 batch 4 loss 3.5728659629821777
+epoch 0 batch 5 loss 3.4947433471679688
+epoch 0 batch 6 loss 3.507819175720215
+epoch 0 batch 7 loss 3.4222800731658936
+epoch 0 batch 8 loss 3.3246121406555176
+epoch 0 batch 9 loss 3.300454616546631
+epoch 0 batch 10 loss 3.29852294921875
+epoch 0 batch 11 loss 3.262352466583252
+epoch 0 batch 12 loss 3.199709892272949
+epoch 0 batch 13 loss 3.1712701320648193
+epoch 0 batch 14 loss 3.1256649494171143
+epoch 0 batch 15 loss 3.070013999938965
+epoch 0 batch 16 loss 3.043245315551758
+epoch 0 batch 17 loss 3.0466079711914062
+epoch 0 batch 18 loss 3.092094898223877
+epoch 0 batch 19 loss 3.030611038208008
+epoch 0 batch 20 loss 3.0073280334472656
+epoch 0 batch 21 loss 2.945342540740967
+epoch 0 batch 22 loss 2.8912813663482666
+epoch 0 batch 23 loss 2.9562575817108154
+epoch 0 batch 24 loss 2.934023857116699
+epoch 0 batch 25 loss 2.888373851776123
+epoch 0 batch 26 loss 2.841982364654541
+epoch 0 batch 27 loss 2.8002192974090576
+epoch 0 batch 28 loss 2.826796531677246
+epoch 0 batch 29 loss 2.796081066131592
+epoch 0 batch 30 loss 2.765252113342285
+epoch 0 batch 31 loss 2.795635461807251
+epoch 0 batch 32 loss 2.799769639968872
+epoch 0 batch 33 loss 2.790119171142578
+epoch 0 batch 34 loss 2.832580804824829
+epoch 0 batch 35 loss 2.7313218116760254
+epoch 0 batch 36 loss 2.7122373580932617
+epoch 0 batch 37 loss 2.6974236965179443
+epoch 0 batch 38 loss 2.7582387924194336
+epoch 0 batch 39 loss 2.740614652633667
+epoch 0 batch 40 loss 2.671207904815674
+epoch 0 batch 41 loss 2.702667236328125
+epoch 0 batch 42 loss 2.689635753631592
+epoch 0 batch 43 loss 2.640789747238159
+epoch 0 batch 44 loss 2.6383557319641113
+epoch 0 batch 45 loss 2.613147258758545
+epoch 0 batch 46 loss 2.6956560611724854
+epoch 0 batch 47 loss 2.684246301651001
+epoch 0 batch 48 loss 2.674750328063965
+epoch 0 batch 49 loss 2.536566734313965
+epoch 0 batch 50 loss 2.6481552124023438
+epoch 0 batch 51 loss 2.669966220855713
+epoch 0 batch 52 loss 2.6343135833740234
+epoch 0 batch 53 loss 2.6605308055877686
+epoch 0 batch 54 loss 2.6502885818481445
+epoch 0 batch 55 loss 2.670712947845459
+epoch 0 batch 56 loss 2.6086981296539307
+epoch 0 batch 57 loss 2.579730272293091
+epoch 0 batch 58 loss 2.6334643363952637
+epoch 0 batch 59 loss 2.6918697357177734
+epoch 0 batch 60 loss 2.601848602294922
+epoch 0 batch 61 loss 2.590228319168091
+epoch 0 batch 62 loss 2.6223862171173096
+epoch 0 batch 63 loss 2.615933418273926
+epoch 0 batch 64 loss 2.5936508178710938
+epoch 0 batch 65 loss 2.594904899597168
+Traceback (most recent call last):
+  File "/Users/oliverclive-griffin/personal/transformer-from-scratch/train.py", line 75, in <module>
+    loss.backward()
+  File "/Users/oliverclive-griffin/.local/share/virtualenvs/transformer-from-scratch-IzBRPy8T/lib/python3.11/site-packages/torch/_tensor.py", line 487, in backward
+    torch.autograd.backward(
+  File "/Users/oliverclive-griffin/.local/share/virtualenvs/transformer-from-scratch-IzBRPy8T/lib/python3.11/site-packages/torch/autograd/__init__.py", line 200, in backward
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt
+epoch 0 batch 66 loss 2.61213755607605
+epoch 0 batch 67 loss 2.5463600158691406

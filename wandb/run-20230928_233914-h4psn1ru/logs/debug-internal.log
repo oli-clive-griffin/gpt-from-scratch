@@ -1,0 +1,447 @@
+2023-09-28 23:39:14,045 INFO    StreamThr :62307 [internal.py:wandb_internal():86] W&B internal server running at pid: 62307, started at: 2023-09-28 23:39:14.045607
+2023-09-28 23:39:14,046 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: status
+2023-09-28 23:39:14,047 INFO    WriterThread:62307 [datastore.py:open_for_write():85] open: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/run-h4psn1ru.wandb
+2023-09-28 23:39:14,047 DEBUG   SenderThread:62307 [sender.py:send():380] send: header
+2023-09-28 23:39:14,057 DEBUG   SenderThread:62307 [sender.py:send():380] send: run
+2023-09-28 23:39:14,719 INFO    SenderThread:62307 [dir_watcher.py:__init__():211] watching files in: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files
+2023-09-28 23:39:14,719 INFO    SenderThread:62307 [sender.py:_start_run_threads():1122] run started: h4psn1ru with start time 1695897554.045829
+2023-09-28 23:39:14,731 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: check_version
+2023-09-28 23:39:14,731 DEBUG   SenderThread:62307 [sender.py:send_request():407] send_request: check_version
+2023-09-28 23:39:14,852 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: run_start
+2023-09-28 23:39:14,863 DEBUG   HandlerThread:62307 [system_info.py:__init__():32] System info init
+2023-09-28 23:39:14,863 DEBUG   HandlerThread:62307 [system_info.py:__init__():47] System info init done
+2023-09-28 23:39:14,864 INFO    HandlerThread:62307 [system_monitor.py:start():181] Starting system monitor
+2023-09-28 23:39:14,864 INFO    SystemMonitor:62307 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-09-28 23:39:14,864 INFO    HandlerThread:62307 [system_monitor.py:probe():201] Collecting system info
+2023-09-28 23:39:14,864 INFO    SystemMonitor:62307 [interfaces.py:start():190] Started cpu monitoring
+2023-09-28 23:39:14,866 DEBUG   HandlerThread:62307 [system_info.py:probe():196] Probing system
+2023-09-28 23:39:14,866 INFO    SystemMonitor:62307 [interfaces.py:start():190] Started disk monitoring
+2023-09-28 23:39:14,868 INFO    SystemMonitor:62307 [interfaces.py:start():190] Started gpuapple monitoring
+2023-09-28 23:39:14,870 INFO    SystemMonitor:62307 [interfaces.py:start():190] Started memory monitoring
+2023-09-28 23:39:14,871 INFO    SystemMonitor:62307 [interfaces.py:start():190] Started network monitoring
+2023-09-28 23:39:14,872 DEBUG   HandlerThread:62307 [system_info.py:_probe_git():181] Probing git
+2023-09-28 23:39:14,887 DEBUG   HandlerThread:62307 [system_info.py:_probe_git():189] Probing git done
+2023-09-28 23:39:14,887 DEBUG   HandlerThread:62307 [system_info.py:probe():244] Probing system done
+2023-09-28 23:39:14,887 DEBUG   HandlerThread:62307 [system_monitor.py:probe():210] {'os': 'macOS-13.0.1-arm64-arm-64bit', 'python': '3.11.4', 'heartbeatAt': '2023-09-28T10:39:14.866738', 'startedAt': '2023-09-28T10:39:14.042863', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': '/Users/oliverclive-griffin/personal/transformer-from-scratch/train.py', 'codePathLocal': 'train.py', 'codePath': 'train.py', 'git': {'remote': 'https://github.com/oli-clive-griffin/transformer-from-scratch.git', 'commit': '8de512886c7232ab4991b1214cf4e304ccc042af'}, 'email': 'o.clivegriffin@gmail.com', 'root': '/Users/oliverclive-griffin/personal/transformer-from-scratch', 'host': 'Olivers-MBP-2', 'username': 'oliverclive-griffin', 'executable': '/Users/oliverclive-griffin/.local/share/virtualenvs/transformer-from-scratch-IzBRPy8T/bin/python3', 'cpu_count': 10, 'cpu_count_logical': 10, 'disk': {'/': {'total': 460.4317207336426, 'used': 12.081615447998047}}, 'gpuapple': {'type': 'arm', 'vendor': 'Apple'}, 'memory': {'total': 32.0}}
+2023-09-28 23:39:14,887 INFO    HandlerThread:62307 [system_monitor.py:probe():211] Finished collecting system info
+2023-09-28 23:39:14,887 INFO    HandlerThread:62307 [system_monitor.py:probe():214] Publishing system info
+2023-09-28 23:39:14,887 DEBUG   HandlerThread:62307 [system_info.py:_save_pip():52] Saving list of pip packages installed into the current environment
+2023-09-28 23:39:14,888 DEBUG   HandlerThread:62307 [system_info.py:_save_pip():68] Saving pip packages done
+2023-09-28 23:39:14,888 INFO    HandlerThread:62307 [system_monitor.py:probe():216] Finished publishing system info
+2023-09-28 23:39:14,889 DEBUG   SenderThread:62307 [sender.py:send():380] send: files
+2023-09-28 23:39:14,889 INFO    SenderThread:62307 [sender.py:_save_file():1378] saving file wandb-metadata.json with policy now
+2023-09-28 23:39:14,894 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: stop_status
+2023-09-28 23:39:14,894 DEBUG   SenderThread:62307 [sender.py:send_request():407] send_request: stop_status
+2023-09-28 23:39:14,894 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: internal_messages
+2023-09-28 23:39:14,916 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: partial_history
+2023-09-28 23:39:15,297 DEBUG   SenderThread:62307 [sender.py:send():380] send: telemetry
+2023-09-28 23:39:15,297 DEBUG   SenderThread:62307 [sender.py:send():380] send: history
+2023-09-28 23:39:15,297 DEBUG   SenderThread:62307 [sender.py:send_request():407] send_request: summary_record
+2023-09-28 23:39:15,298 INFO    SenderThread:62307 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-09-28 23:39:15,725 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/requirements.txt
+2023-09-28 23:39:15,725 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/wandb-metadata.json
+2023-09-28 23:39:15,725 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/wandb-summary.json
+2023-09-28 23:39:15,726 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:39:15,900 INFO    wandb-upload_0:62307 [upload_job.py:push():131] Uploaded file /var/folders/yq/mgyj3_d94q74pzrj921nxcbh0000gn/T/tmpfk76k34uwandb/4v8asiu1-wandb-metadata.json
+2023-09-28 23:39:17,732 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:39:18,249 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: partial_history
+2023-09-28 23:39:18,250 DEBUG   SenderThread:62307 [sender.py:send():380] send: history
+2023-09-28 23:39:18,250 DEBUG   SenderThread:62307 [sender.py:send_request():407] send_request: summary_record
+2023-09-28 23:39:18,250 INFO    SenderThread:62307 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-09-28 23:39:18,737 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/wandb-summary.json
+2023-09-28 23:39:19,256 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: status_report
+2023-09-28 23:39:20,747 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:39:22,758 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:39:24,395 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: status_report
+2023-09-28 23:39:26,776 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:39:28,787 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:39:29,613 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: status_report
+2023-09-28 23:39:29,897 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: stop_status
+2023-09-28 23:39:29,897 DEBUG   SenderThread:62307 [sender.py:send_request():407] send_request: stop_status
+2023-09-28 23:39:29,899 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: internal_messages
+2023-09-28 23:39:32,804 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:39:34,815 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:39:34,854 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: status_report
+2023-09-28 23:39:38,833 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:39:39,962 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: status_report
+2023-09-28 23:39:42,851 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:39:44,862 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:39:44,902 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: stop_status
+2023-09-28 23:39:44,903 DEBUG   SenderThread:62307 [sender.py:send_request():407] send_request: stop_status
+2023-09-28 23:39:44,904 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: internal_messages
+2023-09-28 23:39:45,134 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: status_report
+2023-09-28 23:39:45,867 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/config.yaml
+2023-09-28 23:39:48,883 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:39:49,389 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: partial_history
+2023-09-28 23:39:49,390 DEBUG   SenderThread:62307 [sender.py:send():380] send: history
+2023-09-28 23:39:49,390 DEBUG   SenderThread:62307 [sender.py:send_request():407] send_request: summary_record
+2023-09-28 23:39:49,390 INFO    SenderThread:62307 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-09-28 23:39:49,888 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/wandb-summary.json
+2023-09-28 23:39:50,894 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:39:51,400 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: status_report
+2023-09-28 23:39:54,904 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:39:56,618 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: status_report
+2023-09-28 23:39:56,915 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:39:59,908 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: stop_status
+2023-09-28 23:39:59,908 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: internal_messages
+2023-09-28 23:39:59,909 DEBUG   SenderThread:62307 [sender.py:send_request():407] send_request: stop_status
+2023-09-28 23:40:00,936 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:40:01,843 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: status_report
+2023-09-28 23:40:02,946 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:40:06,960 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:40:06,967 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: status_report
+2023-09-28 23:40:08,970 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:40:11,282 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: partial_history
+2023-09-28 23:40:11,283 DEBUG   SenderThread:62307 [sender.py:send():380] send: history
+2023-09-28 23:40:11,283 DEBUG   SenderThread:62307 [sender.py:send_request():407] send_request: summary_record
+2023-09-28 23:40:11,283 INFO    SenderThread:62307 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-09-28 23:40:11,985 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/wandb-summary.json
+2023-09-28 23:40:12,289 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: status_report
+2023-09-28 23:40:12,991 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:40:14,534 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: partial_history
+2023-09-28 23:40:14,534 DEBUG   SenderThread:62307 [sender.py:send():380] send: history
+2023-09-28 23:40:14,534 DEBUG   SenderThread:62307 [sender.py:send_request():407] send_request: summary_record
+2023-09-28 23:40:14,535 INFO    SenderThread:62307 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-09-28 23:40:14,878 DEBUG   SystemMonitor:62307 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2023-09-28 23:40:14,880 DEBUG   SenderThread:62307 [sender.py:send():380] send: telemetry
+2023-09-28 23:40:14,880 DEBUG   SenderThread:62307 [sender.py:send():380] send: stats
+2023-09-28 23:40:14,914 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: stop_status
+2023-09-28 23:40:14,914 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: internal_messages
+2023-09-28 23:40:14,914 DEBUG   SenderThread:62307 [sender.py:send_request():407] send_request: stop_status
+2023-09-28 23:40:15,002 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/wandb-summary.json
+2023-09-28 23:40:17,009 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:40:17,702 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: status_report
+2023-09-28 23:40:18,012 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/config.yaml
+2023-09-28 23:40:19,017 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:40:23,035 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:40:23,835 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: status_report
+2023-09-28 23:40:25,044 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:40:29,049 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: status_report
+2023-09-28 23:40:29,061 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:40:29,910 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: stop_status
+2023-09-28 23:40:29,911 DEBUG   SenderThread:62307 [sender.py:send_request():407] send_request: stop_status
+2023-09-28 23:40:29,915 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: internal_messages
+2023-09-28 23:40:31,071 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:40:34,294 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: status_report
+2023-09-28 23:40:35,087 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:40:37,098 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:40:39,409 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: status_report
+2023-09-28 23:40:41,106 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:40:44,640 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: status_report
+2023-09-28 23:40:44,878 DEBUG   SenderThread:62307 [sender.py:send():380] send: stats
+2023-09-28 23:40:44,913 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: stop_status
+2023-09-28 23:40:44,913 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: internal_messages
+2023-09-28 23:40:44,913 DEBUG   SenderThread:62307 [sender.py:send_request():407] send_request: stop_status
+2023-09-28 23:40:45,126 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:40:45,743 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: partial_history
+2023-09-28 23:40:45,743 DEBUG   SenderThread:62307 [sender.py:send():380] send: history
+2023-09-28 23:40:45,743 DEBUG   SenderThread:62307 [sender.py:send_request():407] send_request: summary_record
+2023-09-28 23:40:45,744 INFO    SenderThread:62307 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-09-28 23:40:46,132 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/wandb-summary.json
+2023-09-28 23:40:47,137 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:40:49,850 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: status_report
+2023-09-28 23:40:51,154 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:40:53,160 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:40:54,981 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: status_report
+2023-09-28 23:40:57,173 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:40:59,918 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: stop_status
+2023-09-28 23:40:59,919 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: internal_messages
+2023-09-28 23:40:59,919 DEBUG   SenderThread:62307 [sender.py:send_request():407] send_request: stop_status
+2023-09-28 23:41:00,190 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: status_report
+2023-09-28 23:41:01,192 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:41:03,199 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:41:05,452 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: status_report
+2023-09-28 23:41:05,569 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: partial_history
+2023-09-28 23:41:05,569 DEBUG   SenderThread:62307 [sender.py:send():380] send: history
+2023-09-28 23:41:05,569 DEBUG   SenderThread:62307 [sender.py:send_request():407] send_request: summary_record
+2023-09-28 23:41:05,570 INFO    SenderThread:62307 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-09-28 23:41:06,215 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/wandb-summary.json
+2023-09-28 23:41:07,219 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:41:08,852 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: partial_history
+2023-09-28 23:41:08,853 DEBUG   SenderThread:62307 [sender.py:send():380] send: history
+2023-09-28 23:41:08,853 DEBUG   SenderThread:62307 [sender.py:send_request():407] send_request: summary_record
+2023-09-28 23:41:08,853 INFO    SenderThread:62307 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-09-28 23:41:09,223 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/wandb-summary.json
+2023-09-28 23:41:10,864 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: status_report
+2023-09-28 23:41:11,233 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:41:13,240 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:41:14,882 DEBUG   SenderThread:62307 [sender.py:send():380] send: stats
+2023-09-28 23:41:14,921 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: internal_messages
+2023-09-28 23:41:14,922 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: stop_status
+2023-09-28 23:41:14,923 DEBUG   SenderThread:62307 [sender.py:send_request():407] send_request: stop_status
+2023-09-28 23:41:16,231 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: status_report
+2023-09-28 23:41:17,260 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:41:19,271 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:41:21,297 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: status_report
+2023-09-28 23:41:23,291 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:41:26,420 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: status_report
+2023-09-28 23:41:27,310 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:41:29,320 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:41:29,926 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: internal_messages
+2023-09-28 23:41:29,926 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: stop_status
+2023-09-28 23:41:29,927 DEBUG   SenderThread:62307 [sender.py:send_request():407] send_request: stop_status
+2023-09-28 23:41:31,629 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: status_report
+2023-09-28 23:41:33,341 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:41:35,348 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:41:36,747 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: status_report
+2023-09-28 23:41:39,364 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:41:39,952 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: partial_history
+2023-09-28 23:41:39,952 DEBUG   SenderThread:62307 [sender.py:send():380] send: history
+2023-09-28 23:41:39,952 DEBUG   SenderThread:62307 [sender.py:send_request():407] send_request: summary_record
+2023-09-28 23:41:39,952 INFO    SenderThread:62307 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-09-28 23:41:40,366 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/wandb-summary.json
+2023-09-28 23:41:41,369 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:41:41,960 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: status_report
+2023-09-28 23:41:44,888 DEBUG   SenderThread:62307 [sender.py:send():380] send: stats
+2023-09-28 23:41:44,927 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: stop_status
+2023-09-28 23:41:44,927 DEBUG   SenderThread:62307 [sender.py:send_request():407] send_request: stop_status
+2023-09-28 23:41:44,930 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: internal_messages
+2023-09-28 23:41:45,385 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:41:47,179 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: status_report
+2023-09-28 23:41:47,396 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:41:51,416 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:41:52,303 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: status_report
+2023-09-28 23:41:53,425 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:41:57,446 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:41:57,520 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: status_report
+2023-09-28 23:41:59,800 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: partial_history
+2023-09-28 23:41:59,801 DEBUG   SenderThread:62307 [sender.py:send():380] send: history
+2023-09-28 23:41:59,801 DEBUG   SenderThread:62307 [sender.py:send_request():407] send_request: summary_record
+2023-09-28 23:41:59,801 INFO    SenderThread:62307 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-09-28 23:41:59,932 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: internal_messages
+2023-09-28 23:41:59,933 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: stop_status
+2023-09-28 23:41:59,933 DEBUG   SenderThread:62307 [sender.py:send_request():407] send_request: stop_status
+2023-09-28 23:42:00,457 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/wandb-summary.json
+2023-09-28 23:42:01,458 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:42:03,033 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: status_report
+2023-09-28 23:42:03,033 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: partial_history
+2023-09-28 23:42:03,033 DEBUG   SenderThread:62307 [sender.py:send():380] send: history
+2023-09-28 23:42:03,033 DEBUG   SenderThread:62307 [sender.py:send_request():407] send_request: summary_record
+2023-09-28 23:42:03,033 INFO    SenderThread:62307 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-09-28 23:42:03,469 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/wandb-summary.json
+2023-09-28 23:42:05,475 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:42:07,486 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:42:08,171 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: status_report
+2023-09-28 23:42:11,505 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:42:13,392 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: status_report
+2023-09-28 23:42:14,894 DEBUG   SenderThread:62307 [sender.py:send():380] send: stats
+2023-09-28 23:42:14,938 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: stop_status
+2023-09-28 23:42:14,938 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: internal_messages
+2023-09-28 23:42:14,938 DEBUG   SenderThread:62307 [sender.py:send_request():407] send_request: stop_status
+2023-09-28 23:42:15,524 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:42:17,535 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:42:18,522 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: status_report
+2023-09-28 23:42:21,556 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:42:23,560 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:42:23,738 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: status_report
+2023-09-28 23:42:27,581 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:42:28,978 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: status_report
+2023-09-28 23:42:29,584 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:42:29,938 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: stop_status
+2023-09-28 23:42:29,938 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: internal_messages
+2023-09-28 23:42:29,939 DEBUG   SenderThread:62307 [sender.py:send_request():407] send_request: stop_status
+2023-09-28 23:42:33,605 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:42:34,102 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: status_report
+2023-09-28 23:42:34,197 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: partial_history
+2023-09-28 23:42:34,197 DEBUG   SenderThread:62307 [sender.py:send():380] send: history
+2023-09-28 23:42:34,197 DEBUG   SenderThread:62307 [sender.py:send_request():407] send_request: summary_record
+2023-09-28 23:42:34,198 INFO    SenderThread:62307 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-09-28 23:42:34,608 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/wandb-summary.json
+2023-09-28 23:42:35,613 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:42:39,335 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: status_report
+2023-09-28 23:42:39,632 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:42:41,643 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:42:44,570 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: status_report
+2023-09-28 23:42:44,900 DEBUG   SenderThread:62307 [sender.py:send():380] send: stats
+2023-09-28 23:42:44,944 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: stop_status
+2023-09-28 23:42:44,944 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: internal_messages
+2023-09-28 23:42:44,945 DEBUG   SenderThread:62307 [sender.py:send_request():407] send_request: stop_status
+2023-09-28 23:42:45,664 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:42:49,684 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:42:49,704 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: status_report
+2023-09-28 23:42:51,694 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:42:54,102 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: partial_history
+2023-09-28 23:42:54,103 DEBUG   SenderThread:62307 [sender.py:send():380] send: history
+2023-09-28 23:42:54,103 DEBUG   SenderThread:62307 [sender.py:send_request():407] send_request: summary_record
+2023-09-28 23:42:54,103 INFO    SenderThread:62307 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-09-28 23:42:54,707 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/wandb-summary.json
+2023-09-28 23:42:55,108 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: status_report
+2023-09-28 23:42:55,712 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:42:57,413 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: partial_history
+2023-09-28 23:42:57,415 DEBUG   SenderThread:62307 [sender.py:send():380] send: history
+2023-09-28 23:42:57,416 DEBUG   SenderThread:62307 [sender.py:send_request():407] send_request: summary_record
+2023-09-28 23:42:57,417 INFO    SenderThread:62307 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-09-28 23:42:57,722 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/wandb-summary.json
+2023-09-28 23:42:59,732 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:42:59,949 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: stop_status
+2023-09-28 23:42:59,949 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: internal_messages
+2023-09-28 23:42:59,949 DEBUG   SenderThread:62307 [sender.py:send_request():407] send_request: stop_status
+2023-09-28 23:43:00,194 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: status_report
+2023-09-28 23:43:01,743 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:43:05,661 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: status_report
+2023-09-28 23:43:05,762 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:43:09,781 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:43:10,884 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: status_report
+2023-09-28 23:43:11,787 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:43:14,905 DEBUG   SenderThread:62307 [sender.py:send():380] send: stats
+2023-09-28 23:43:14,951 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: stop_status
+2023-09-28 23:43:14,951 DEBUG   SenderThread:62307 [sender.py:send_request():407] send_request: stop_status
+2023-09-28 23:43:14,953 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: internal_messages
+2023-09-28 23:43:15,804 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:43:16,100 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: status_report
+2023-09-28 23:43:17,814 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:43:21,219 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: status_report
+2023-09-28 23:43:21,834 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:43:23,845 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:43:26,426 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: status_report
+2023-09-28 23:43:27,860 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:43:28,499 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: partial_history
+2023-09-28 23:43:28,499 DEBUG   SenderThread:62307 [sender.py:send():380] send: history
+2023-09-28 23:43:28,499 DEBUG   SenderThread:62307 [sender.py:send_request():407] send_request: summary_record
+2023-09-28 23:43:28,500 INFO    SenderThread:62307 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-09-28 23:43:28,866 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/wandb-summary.json
+2023-09-28 23:43:29,957 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: stop_status
+2023-09-28 23:43:29,957 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: internal_messages
+2023-09-28 23:43:29,958 DEBUG   SenderThread:62307 [sender.py:send_request():407] send_request: stop_status
+2023-09-28 23:43:31,248 DEBUG   SenderThread:62307 [sender.py:send():380] send: exit
+2023-09-28 23:43:31,248 INFO    SenderThread:62307 [sender.py:send_exit():585] handling exit code: 255
+2023-09-28 23:43:31,248 INFO    SenderThread:62307 [sender.py:send_exit():587] handling runtime: 256
+2023-09-28 23:43:31,248 INFO    SenderThread:62307 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-09-28 23:43:31,249 INFO    SenderThread:62307 [sender.py:send_exit():593] send defer
+2023-09-28 23:43:31,249 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: defer
+2023-09-28 23:43:31,249 INFO    HandlerThread:62307 [handler.py:handle_request_defer():170] handle defer: 0
+2023-09-28 23:43:31,249 DEBUG   SenderThread:62307 [sender.py:send_request():407] send_request: defer
+2023-09-28 23:43:31,249 INFO    SenderThread:62307 [sender.py:send_request_defer():609] handle sender defer: 0
+2023-09-28 23:43:31,249 INFO    SenderThread:62307 [sender.py:transition_state():613] send defer: 1
+2023-09-28 23:43:31,249 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: defer
+2023-09-28 23:43:31,249 INFO    HandlerThread:62307 [handler.py:handle_request_defer():170] handle defer: 1
+2023-09-28 23:43:31,249 DEBUG   SenderThread:62307 [sender.py:send_request():407] send_request: defer
+2023-09-28 23:43:31,249 INFO    SenderThread:62307 [sender.py:send_request_defer():609] handle sender defer: 1
+2023-09-28 23:43:31,249 INFO    SenderThread:62307 [sender.py:transition_state():613] send defer: 2
+2023-09-28 23:43:31,249 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: defer
+2023-09-28 23:43:31,249 INFO    HandlerThread:62307 [handler.py:handle_request_defer():170] handle defer: 2
+2023-09-28 23:43:31,249 INFO    HandlerThread:62307 [system_monitor.py:finish():190] Stopping system monitor
+2023-09-28 23:43:31,249 INFO    HandlerThread:62307 [interfaces.py:finish():202] Joined cpu monitor
+2023-09-28 23:43:31,249 DEBUG   SystemMonitor:62307 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2023-09-28 23:43:31,249 INFO    HandlerThread:62307 [interfaces.py:finish():202] Joined disk monitor
+2023-09-28 23:43:31,249 DEBUG   SystemMonitor:62307 [system_monitor.py:_start():170] Publishing last batch of metrics
+2023-09-28 23:43:31,249 INFO    HandlerThread:62307 [interfaces.py:finish():202] Joined gpuapple monitor
+2023-09-28 23:43:31,250 INFO    HandlerThread:62307 [interfaces.py:finish():202] Joined memory monitor
+2023-09-28 23:43:31,250 INFO    HandlerThread:62307 [interfaces.py:finish():202] Joined network monitor
+2023-09-28 23:43:31,250 DEBUG   SenderThread:62307 [sender.py:send_request():407] send_request: defer
+2023-09-28 23:43:31,250 INFO    SenderThread:62307 [sender.py:send_request_defer():609] handle sender defer: 2
+2023-09-28 23:43:31,250 INFO    SenderThread:62307 [sender.py:transition_state():613] send defer: 3
+2023-09-28 23:43:31,250 DEBUG   SenderThread:62307 [sender.py:send():380] send: stats
+2023-09-28 23:43:31,250 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: defer
+2023-09-28 23:43:31,250 INFO    HandlerThread:62307 [handler.py:handle_request_defer():170] handle defer: 3
+2023-09-28 23:43:31,250 DEBUG   SenderThread:62307 [sender.py:send_request():407] send_request: defer
+2023-09-28 23:43:31,250 INFO    SenderThread:62307 [sender.py:send_request_defer():609] handle sender defer: 3
+2023-09-28 23:43:31,250 INFO    SenderThread:62307 [sender.py:transition_state():613] send defer: 4
+2023-09-28 23:43:31,250 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: defer
+2023-09-28 23:43:31,250 INFO    HandlerThread:62307 [handler.py:handle_request_defer():170] handle defer: 4
+2023-09-28 23:43:31,250 DEBUG   SenderThread:62307 [sender.py:send_request():407] send_request: defer
+2023-09-28 23:43:31,250 INFO    SenderThread:62307 [sender.py:send_request_defer():609] handle sender defer: 4
+2023-09-28 23:43:31,250 INFO    SenderThread:62307 [sender.py:transition_state():613] send defer: 5
+2023-09-28 23:43:31,250 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: defer
+2023-09-28 23:43:31,250 INFO    HandlerThread:62307 [handler.py:handle_request_defer():170] handle defer: 5
+2023-09-28 23:43:31,250 DEBUG   SenderThread:62307 [sender.py:send():380] send: summary
+2023-09-28 23:43:31,250 INFO    SenderThread:62307 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-09-28 23:43:31,251 DEBUG   SenderThread:62307 [sender.py:send_request():407] send_request: defer
+2023-09-28 23:43:31,251 INFO    SenderThread:62307 [sender.py:send_request_defer():609] handle sender defer: 5
+2023-09-28 23:43:31,251 INFO    SenderThread:62307 [sender.py:transition_state():613] send defer: 6
+2023-09-28 23:43:31,251 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: defer
+2023-09-28 23:43:31,251 INFO    HandlerThread:62307 [handler.py:handle_request_defer():170] handle defer: 6
+2023-09-28 23:43:31,251 DEBUG   SenderThread:62307 [sender.py:send_request():407] send_request: defer
+2023-09-28 23:43:31,251 INFO    SenderThread:62307 [sender.py:send_request_defer():609] handle sender defer: 6
+2023-09-28 23:43:31,251 INFO    SenderThread:62307 [sender.py:transition_state():613] send defer: 7
+2023-09-28 23:43:31,251 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: status_report
+2023-09-28 23:43:31,251 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: defer
+2023-09-28 23:43:31,251 INFO    HandlerThread:62307 [handler.py:handle_request_defer():170] handle defer: 7
+2023-09-28 23:43:31,251 DEBUG   SenderThread:62307 [sender.py:send_request():407] send_request: defer
+2023-09-28 23:43:31,251 INFO    SenderThread:62307 [sender.py:send_request_defer():609] handle sender defer: 7
+2023-09-28 23:43:31,877 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/wandb-summary.json
+2023-09-28 23:43:31,880 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:43:32,254 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: poll_exit
+2023-09-28 23:43:32,882 INFO    SenderThread:62307 [sender.py:transition_state():613] send defer: 8
+2023-09-28 23:43:32,882 DEBUG   SenderThread:62307 [sender.py:send_request():407] send_request: poll_exit
+2023-09-28 23:43:32,882 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: defer
+2023-09-28 23:43:32,882 INFO    HandlerThread:62307 [handler.py:handle_request_defer():170] handle defer: 8
+2023-09-28 23:43:32,882 INFO    Thread-12 :62307 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:43:32,882 DEBUG   SenderThread:62307 [sender.py:send_request():407] send_request: defer
+2023-09-28 23:43:32,882 INFO    SenderThread:62307 [sender.py:send_request_defer():609] handle sender defer: 8
+2023-09-28 23:43:32,882 INFO    SenderThread:62307 [job_builder.py:build():281] Attempting to build job artifact
+2023-09-28 23:43:32,882 INFO    SenderThread:62307 [job_builder.py:_get_source_type():393] is repo sourced job
+2023-09-28 23:43:32,883 INFO    SenderThread:62307 [job_builder.py:build():369] adding wandb-job metadata file
+2023-09-28 23:43:32,884 INFO    SenderThread:62307 [sender.py:transition_state():613] send defer: 9
+2023-09-28 23:43:32,884 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: defer
+2023-09-28 23:43:32,884 DEBUG   SenderThread:62307 [sender.py:send():380] send: artifact
+2023-09-28 23:43:32,884 INFO    HandlerThread:62307 [handler.py:handle_request_defer():170] handle defer: 9
+2023-09-28 23:43:33,260 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: poll_exit
+2023-09-28 23:43:34,123 INFO    SenderThread:62307 [sender.py:send_artifact():1456] sent artifact job-https___github.com_oli-clive-griffin_transformer-from-scratch.git_train.py - {'id': 'QXJ0aWZhY3Q6NTg3MjE4NDU1', 'state': 'COMMITTED', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjEwMjA0OTE1Nw==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NTg3MjMxNTE4', 'versionIndex': 5}}}
+2023-09-28 23:43:34,123 DEBUG   SenderThread:62307 [sender.py:send_request():407] send_request: defer
+2023-09-28 23:43:34,123 INFO    SenderThread:62307 [sender.py:send_request_defer():609] handle sender defer: 9
+2023-09-28 23:43:34,123 INFO    SenderThread:62307 [dir_watcher.py:finish():358] shutting down directory watcher
+2023-09-28 23:43:34,892 INFO    SenderThread:62307 [dir_watcher.py:finish():388] scan: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files
+2023-09-28 23:43:34,892 INFO    SenderThread:62307 [dir_watcher.py:finish():402] scan save: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/requirements.txt requirements.txt
+2023-09-28 23:43:34,892 INFO    SenderThread:62307 [dir_watcher.py:finish():402] scan save: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log output.log
+2023-09-28 23:43:34,893 INFO    SenderThread:62307 [dir_watcher.py:finish():402] scan save: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/config.yaml config.yaml
+2023-09-28 23:43:34,894 INFO    SenderThread:62307 [dir_watcher.py:finish():402] scan save: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/wandb-summary.json wandb-summary.json
+2023-09-28 23:43:34,896 INFO    SenderThread:62307 [dir_watcher.py:finish():402] scan save: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/wandb-metadata.json wandb-metadata.json
+2023-09-28 23:43:34,896 INFO    SenderThread:62307 [sender.py:transition_state():613] send defer: 10
+2023-09-28 23:43:34,896 DEBUG   SenderThread:62307 [sender.py:send_request():407] send_request: poll_exit
+2023-09-28 23:43:34,896 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: defer
+2023-09-28 23:43:34,896 INFO    HandlerThread:62307 [handler.py:handle_request_defer():170] handle defer: 10
+2023-09-28 23:43:34,898 DEBUG   SenderThread:62307 [sender.py:send_request():407] send_request: defer
+2023-09-28 23:43:34,898 INFO    SenderThread:62307 [sender.py:send_request_defer():609] handle sender defer: 10
+2023-09-28 23:43:34,898 INFO    SenderThread:62307 [file_pusher.py:finish():175] shutting down file pusher
+2023-09-28 23:43:35,684 INFO    wandb-upload_0:62307 [upload_job.py:push():131] Uploaded file /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/requirements.txt
+2023-09-28 23:43:35,757 INFO    wandb-upload_3:62307 [upload_job.py:push():131] Uploaded file /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/wandb-summary.json
+2023-09-28 23:43:35,783 INFO    wandb-upload_2:62307 [upload_job.py:push():131] Uploaded file /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/config.yaml
+2023-09-28 23:43:36,699 INFO    wandb-upload_1:62307 [upload_job.py:push():131] Uploaded file /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/files/output.log
+2023-09-28 23:43:36,904 INFO    Thread-11 (_thread_body):62307 [sender.py:transition_state():613] send defer: 11
+2023-09-28 23:43:36,904 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: defer
+2023-09-28 23:43:36,904 INFO    HandlerThread:62307 [handler.py:handle_request_defer():170] handle defer: 11
+2023-09-28 23:43:36,904 DEBUG   SenderThread:62307 [sender.py:send_request():407] send_request: defer
+2023-09-28 23:43:36,904 INFO    SenderThread:62307 [sender.py:send_request_defer():609] handle sender defer: 11
+2023-09-28 23:43:36,904 INFO    SenderThread:62307 [file_pusher.py:join():181] waiting for file pusher
+2023-09-28 23:43:36,904 INFO    SenderThread:62307 [sender.py:transition_state():613] send defer: 12
+2023-09-28 23:43:36,904 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: defer
+2023-09-28 23:43:36,904 INFO    HandlerThread:62307 [handler.py:handle_request_defer():170] handle defer: 12
+2023-09-28 23:43:36,905 DEBUG   SenderThread:62307 [sender.py:send_request():407] send_request: defer
+2023-09-28 23:43:36,905 INFO    SenderThread:62307 [sender.py:send_request_defer():609] handle sender defer: 12
+2023-09-28 23:43:36,905 INFO    SenderThread:62307 [file_stream.py:finish():595] file stream finish called
+2023-09-28 23:43:38,281 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: keepalive
+2023-09-28 23:43:39,552 INFO    SenderThread:62307 [file_stream.py:finish():599] file stream finish is done
+2023-09-28 23:43:39,552 INFO    SenderThread:62307 [sender.py:transition_state():613] send defer: 13
+2023-09-28 23:43:39,552 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: defer
+2023-09-28 23:43:39,552 INFO    HandlerThread:62307 [handler.py:handle_request_defer():170] handle defer: 13
+2023-09-28 23:43:39,552 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: status_report
+2023-09-28 23:43:39,552 DEBUG   SenderThread:62307 [sender.py:send_request():407] send_request: defer
+2023-09-28 23:43:39,553 INFO    SenderThread:62307 [sender.py:send_request_defer():609] handle sender defer: 13
+2023-09-28 23:43:39,553 INFO    SenderThread:62307 [sender.py:transition_state():613] send defer: 14
+2023-09-28 23:43:39,553 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: defer
+2023-09-28 23:43:39,553 INFO    HandlerThread:62307 [handler.py:handle_request_defer():170] handle defer: 14
+2023-09-28 23:43:39,553 DEBUG   SenderThread:62307 [sender.py:send():380] send: final
+2023-09-28 23:43:39,553 DEBUG   SenderThread:62307 [sender.py:send():380] send: footer
+2023-09-28 23:43:39,553 DEBUG   SenderThread:62307 [sender.py:send_request():407] send_request: defer
+2023-09-28 23:43:39,553 INFO    SenderThread:62307 [sender.py:send_request_defer():609] handle sender defer: 14
+2023-09-28 23:43:39,553 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: poll_exit
+2023-09-28 23:43:39,553 DEBUG   SenderThread:62307 [sender.py:send_request():407] send_request: poll_exit
+2023-09-28 23:43:39,554 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: server_info
+2023-09-28 23:43:39,554 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: get_summary
+2023-09-28 23:43:39,554 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: sampled_history
+2023-09-28 23:43:39,554 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: internal_messages
+2023-09-28 23:43:39,554 DEBUG   SenderThread:62307 [sender.py:send_request():407] send_request: server_info
+2023-09-28 23:43:39,554 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: job_info
+2023-09-28 23:43:39,779 DEBUG   SenderThread:62307 [sender.py:send_request():407] send_request: job_info
+2023-09-28 23:43:39,779 INFO    MainThread:62307 [wandb_run.py:_footer_history_summary_info():3554] rendering history
+2023-09-28 23:43:39,779 INFO    MainThread:62307 [wandb_run.py:_footer_history_summary_info():3586] rendering summary
+2023-09-28 23:43:39,779 INFO    MainThread:62307 [wandb_run.py:_footer_sync_info():3513] logging synced files
+2023-09-28 23:43:39,779 DEBUG   HandlerThread:62307 [handler.py:handle_request():144] handle_request: shutdown
+2023-09-28 23:43:39,780 INFO    HandlerThread:62307 [handler.py:finish():844] shutting down handler
+2023-09-28 23:43:40,199 WARNING StreamThr :62307 [internal.py:is_dead():414] Internal process exiting, parent pid 62299 disappeared
+2023-09-28 23:43:40,199 ERROR   StreamThr :62307 [internal.py:wandb_internal():152] Internal process shutdown.
+2023-09-28 23:43:40,560 INFO    WriterThread:62307 [datastore.py:close():294] close: /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230928_233914-h4psn1ru/run-h4psn1ru.wandb
+2023-09-28 23:43:40,784 INFO    SenderThread:62307 [sender.py:finish():1534] shutting down sender
+2023-09-28 23:43:40,784 INFO    SenderThread:62307 [file_pusher.py:finish():175] shutting down file pusher
+2023-09-28 23:43:40,784 INFO    SenderThread:62307 [file_pusher.py:join():181] waiting for file pusher

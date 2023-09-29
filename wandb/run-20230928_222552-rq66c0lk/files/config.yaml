@@ -1,0 +1,48 @@
+wandb_version: 1
+
+batch_size:
+  desc: null
+  value: 256
+d_in:
+  desc: null
+  value: 128
+block_size:
+  desc: null
+  value: 64
+train_pct:
+  desc: null
+  value: 0.8
+num_block:
+  desc: null
+  value: 6
+num_heads:
+  desc: null
+  value: 4
+batches:
+  desc: null
+  value: 54
+_wandb:
+  desc: null
+  value:
+    python_version: 3.11.4
+    cli_version: 0.15.11
+    framework: torch
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    start_time: 1695893152.388738
+    t:
+      1:
+      - 1
+      - 55
+      2:
+      - 1
+      - 55
+      3:
+      - 16
+      - 23
+      4: 3.11.4
+      5: 0.15.11
+      8:
+      - 4
+      - 5
+      13: darwin-arm64

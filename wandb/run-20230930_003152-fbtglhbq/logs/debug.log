@@ -1,0 +1,27 @@
+2023-09-30 00:31:52,272 INFO    MainThread:44002 [wandb_setup.py:_flush():76] Current SDK version is 0.15.11
+2023-09-30 00:31:52,272 INFO    MainThread:44002 [wandb_setup.py:_flush():76] Configure stats pid to 44002
+2023-09-30 00:31:52,272 INFO    MainThread:44002 [wandb_setup.py:_flush():76] Loading settings from /Users/oliverclive-griffin/.config/wandb/settings
+2023-09-30 00:31:52,272 INFO    MainThread:44002 [wandb_setup.py:_flush():76] Loading settings from /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/settings
+2023-09-30 00:31:52,272 WARNING MainThread:44002 [wandb_setup.py:_flush():76] Unknown environment variable: WANDB_KEY
+2023-09-30 00:31:52,273 INFO    MainThread:44002 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2023-09-30 00:31:52,273 INFO    MainThread:44002 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2023-09-30 00:31:52,273 INFO    MainThread:44002 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'train.py', 'program_abspath': '/Users/oliverclive-griffin/personal/transformer-from-scratch/train.py', 'program': '/Users/oliverclive-griffin/personal/transformer-from-scratch/train.py'}
+2023-09-30 00:31:52,273 INFO    MainThread:44002 [wandb_init.py:_log_setup():528] Logging user logs to /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230930_003152-fbtglhbq/logs/debug.log
+2023-09-30 00:31:52,273 INFO    MainThread:44002 [wandb_init.py:_log_setup():529] Logging internal logs to /Users/oliverclive-griffin/personal/transformer-from-scratch/wandb/run-20230930_003152-fbtglhbq/logs/debug-internal.log
+2023-09-30 00:31:52,273 INFO    MainThread:44002 [wandb_init.py:init():568] calling init triggers
+2023-09-30 00:31:52,273 INFO    MainThread:44002 [wandb_init.py:init():575] wandb.init called with sweep_config: {}
+config: {'batch_size': 32, 'd_in': 384, 'block_size': 128, 'train_pct': 0.9, 'num_block': 6, 'num_heads': 6, 'dropout': 0.1}
+2023-09-30 00:31:52,273 INFO    MainThread:44002 [wandb_init.py:init():618] starting backend
+2023-09-30 00:31:52,273 INFO    MainThread:44002 [wandb_init.py:init():622] setting up manager
+2023-09-30 00:31:52,275 INFO    MainThread:44002 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=spawn,fork,forkserver, using: spawn
+2023-09-30 00:31:52,277 INFO    MainThread:44002 [wandb_init.py:init():628] backend started and connected
+2023-09-30 00:31:52,280 INFO    MainThread:44002 [wandb_init.py:init():720] updated telemetry
+2023-09-30 00:31:52,294 INFO    MainThread:44002 [wandb_init.py:init():753] communicating run to backend with 90.0 second timeout
+2023-09-30 00:31:53,044 INFO    MainThread:44002 [wandb_run.py:_on_init():2220] communicating current version
+2023-09-30 00:31:53,260 INFO    MainThread:44002 [wandb_run.py:_on_init():2229] got version response 
+2023-09-30 00:31:53,261 INFO    MainThread:44002 [wandb_init.py:init():804] starting run threads in backend
+2023-09-30 00:31:53,315 INFO    MainThread:44002 [wandb_run.py:_console_start():2199] atexit reg
+2023-09-30 00:31:53,315 INFO    MainThread:44002 [wandb_run.py:_redirect():2054] redirect: wrap_raw
+2023-09-30 00:31:53,316 INFO    MainThread:44002 [wandb_run.py:_redirect():2119] Wrapping output streams.
+2023-09-30 00:31:53,316 INFO    MainThread:44002 [wandb_run.py:_redirect():2144] Redirects installed.
+2023-09-30 00:31:53,316 INFO    MainThread:44002 [wandb_init.py:init():845] run started, returning control to user process

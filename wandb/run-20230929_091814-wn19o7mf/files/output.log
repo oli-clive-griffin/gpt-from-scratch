@@ -1,0 +1,13 @@
+[34m[1mwandb[39m[22m: Network error resolved after 0:00:12.055027, resuming normal operation.
+Traceback (most recent call last):
+  File "/Users/oliverclive-griffin/personal/transformer-from-scratch/train.py", line 78, in <module>
+    logits, loss = model.forward(batch_x, batch_y)
+  File "/Users/oliverclive-griffin/personal/transformer-from-scratch/model.py", line 117, in forward
+    x1 = self.embedding(x)
+  File "/Users/oliverclive-griffin/.local/share/virtualenvs/satellite-apc-model-dev-SYnPQYpy/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/Users/oliverclive-griffin/.local/share/virtualenvs/satellite-apc-model-dev-SYnPQYpy/lib/python3.10/site-packages/torch/nn/modules/sparse.py", line 162, in forward
+    return F.embedding(
+  File "/Users/oliverclive-griffin/.local/share/virtualenvs/satellite-apc-model-dev-SYnPQYpy/lib/python3.10/site-packages/torch/nn/functional.py", line 2210, in embedding
+    return torch.embedding(weight, input, padding_idx, scale_grad_by_freq, sparse)
+RuntimeError: Placeholder storage has not been allocated on MPS device!

@@ -11,28 +11,30 @@ class AttentionBlock(nn.Module):
         d_k,
         d_v,
         block_size,
+        dropout_rate,
     ):
         super().__init__()
         self.q = nn.Linear(d_in, d_k, bias=False)
         self.k = nn.Linear(d_in, d_k, bias=False)
         self.v = nn.Linear(d_in, d_v, bias=False)
         self.register_buffer('tril', torch.tril(torch.ones((block_size, block_size)), diagonal=0))
+        self.dropout = nn.Dropout(dropout_rate)
 
     def forward(self, x: Tensor):
         B,T,C = x.shape
         Q = self.q(x)
         K = self.k(x)
         V = self.v(x)
-        xout = AttentionBlock._scaled_dot_product_attention(Q, K, V, self.tril[:T,:T])
+        xout = self._scaled_dot_product_attention(Q, K, V, self.tril[:T,:T])
         return xout
 
-    @staticmethod
-    def _scaled_dot_product_attention(q: Tensor, k: Tensor, v: Tensor, mask: Tensor = None) -> Tensor: # shape (batch_size, seq_length, dim_v)
+    def _scaled_dot_product_attention(self, q: Tensor, k: Tensor, v: Tensor, mask: Tensor = None) -> Tensor: # shape (batch_size, seq_length, dim_v)
         assert len(q.shape) == 3 and len(k.shape) == 3, 'expected both q and k to be 3d'
         attn_matrix = q @ k.transpose(-2, -1)
         if mask is not None:
             attn_matrix = attn_matrix.masked_fill(mask==0, float('-inf'))
         attn_matrix = attn_matrix.softmax(dim=-1)
+        attn_matrix = self.dropout(attn_matrix)
         return (attn_matrix @ v) / (k.size(-1) ** 0.5)
 
 
@@ -42,11 +44,13 @@ class MultiHeadAttentionBlock(nn.Module):
         num_heads,
         d_per_head,
         block_size,
+        dropout_rate,
     ):
         super().__init__()
         self.d_per_head = d_per_head
         self.num_heads = num_heads
-        self.heads = nn.ModuleList([AttentionBlock(d_per_head, d_per_head, d_per_head, block_size) for _ in range(num_heads)])
+        self.heads = nn.ModuleList([AttentionBlock(d_per_head, d_per_head, d_per_head, block_size, dropout_rate) for _ in range(num_heads)])
+        self.dropout = nn.Dropout(dropout_rate)
 
     def forward(self, x: Tensor):
         d_in = x.shape[2]
@@ -59,7 +63,7 @@ class MultiHeadAttentionBlock(nn.Module):
             for i, head in enumerate(self.heads)
         ]
 
-        return torch.cat(xs, dim=2)
+        return self.dropout(torch.cat(xs, dim=2))
 
 
 class FeedForward(nn.Module):
@@ -82,12 +86,15 @@ class TransformerBlock(nn.Module):
         d,
         num_heads,
         block_size,
+        dropout_rate,
     ):
         super().__init__()
         self.num_heads = num_heads
 
         self.ln1 = nn.LayerNorm(d) # TODO check
-        self.mha = MultiHeadAttentionBlock(num_heads, d // num_heads, block_size)
+        self.mha = MultiHeadAttentionBlock(num_heads, d // num_heads, block_size, dropout_rate)
+
+        # dropout somewhere here
 
         self.ln2 = nn.LayerNorm(d) # TODO check
         self.ffwd = FeedForward(d, d)
@@ -106,11 +113,12 @@ class GPT(nn.Module):
         num_heads: int,
         num_blocks: int,
         block_size: int,
+        dropout_rate: float,
     ):
         super().__init__()
         self.dict_size = dict_size
         self.embedding = nn.Embedding(dict_size, d_in)
-        self.transformer_blocks = nn.Sequential(*[TransformerBlock(d_in, num_heads, block_size) for _ in range(num_blocks)])
+        self.transformer_blocks = nn.Sequential(*[TransformerBlock(d_in, num_heads, block_size, dropout_rate) for _ in range(num_blocks)])
         self.decoder = nn.Linear(d_in, dict_size)
 
     def forward(self, x: Tensor, targets: Tensor | None = None) -> Tensor | tuple[Tensor, Tensor]:

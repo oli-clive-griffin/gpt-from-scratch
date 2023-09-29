@@ -4,9 +4,10 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-pytorch = "*"
+numpy = "*"
 torch = "*"
 einops = "*"
+wandb = "*"
 
 [dev-packages]
 

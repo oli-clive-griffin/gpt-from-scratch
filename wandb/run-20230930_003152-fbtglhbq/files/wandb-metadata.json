@@ -1,0 +1,37 @@
+{
+    "os": "macOS-13.0.1-arm64-arm-64bit",
+    "python": "3.11.4",
+    "heartbeatAt": "2023-09-29T11:31:53.289385",
+    "startedAt": "2023-09-29T11:31:52.266400",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "/Users/oliverclive-griffin/personal/transformer-from-scratch/train.py",
+    "codePathLocal": "train.py",
+    "codePath": "train.py",
+    "git": {
+        "remote": "https://github.com/oli-clive-griffin/transformer-from-scratch.git",
+        "commit": "8de512886c7232ab4991b1214cf4e304ccc042af"
+    },
+    "email": "o.clivegriffin@gmail.com",
+    "root": "/Users/oliverclive-griffin/personal/transformer-from-scratch",
+    "host": "Olivers-MacBook-Pro-2.local",
+    "username": "oliverclive-griffin",
+    "executable": "/Users/oliverclive-griffin/.local/share/virtualenvs/transformer-from-scratch-IzBRPy8T/bin/python3",
+    "cpu_count": 10,
+    "cpu_count_logical": 10,
+    "disk": {
+        "/": {
+            "total": 460.4317207336426,
+            "used": 12.081615447998047
+        }
+    },
+    "gpuapple": {
+        "type": "arm",
+        "vendor": "Apple"
+    },
+    "memory": {
+        "total": 32.0
+    }
+}
